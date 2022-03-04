@@ -1,4 +1,4 @@
-
+<svelte:options tag="crud-app"/>
 <script>
 	let people = [
 		{ first: 'Hans', last: 'Emil' },
@@ -48,7 +48,7 @@
 		last = person ? person.last : '';
 	}
 </script>
-<div class="root">
+<div>
 	<div class="actions">
 		<div class="select-items">
 			<input placeholder="filter prefix" bind:value={prefix}>
@@ -74,21 +74,24 @@
 
 
 <style>
-	.root{
+	:host{
 		display: flex;
 		flex-direction: column;		
+		align-items: center;
+		background-color: red;
 	}
+	
 
 	.actions{
 		display: flex;
 		flex-direction: row;
 		justify-content: center;
+		margin-bottom: var(--vertical-gap, 0.5em);
 	}
 	.select-items{
 		display: flex;
 		flex-direction: column;
-		margin-right: 1em;
-
+		margin-right: var(--horizontal-gap, 0.5em);
 	}
 	
 	* {
@@ -97,6 +100,17 @@
 	}
 
 	.buttons {
-		clear: both;
+		display: flex;
+		justify-content: center;
+	}
+
+	.buttons > button{
+		color: var(--buttons-clr, red);
+		margin-right: var(--horizontal-gap, 0.5em);
+	}
+
+	.buttons > button:last-child{
+		color: var(--buttons-clr, red);
+		margin-right: 0em;
 	}
 </style>

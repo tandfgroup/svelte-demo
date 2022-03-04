@@ -1,7 +1,4 @@
 <script>
-import Crud from "./Crud.svelte";
-
-
 	export let name;
 </script>
 
@@ -9,15 +6,16 @@ import Crud from "./Crud.svelte";
 <main>
 	<h1>Hello {name}!</h1>
 	<p>Visit the <a href="https://svelte.dev/tutorial">Svelte tutorial</a> to learn how to build Svelte apps.</p>
-	<Crud/>
+	<crud-app/>
+	<!-- <Crud/> -->
 </main>
 
 <style>
 	main {
-		text-align: center;
+		/* text-align: center;
 		padding: 1em;
 		max-width: 240px;
-		margin: 0 auto;
+		margin: 0 auto; */
 	}
 
 	h1 {
@@ -31,5 +29,11 @@ import Crud from "./Crud.svelte";
 		main {
 			max-width: none;
 		}
+	}
+
+	crud-app {
+	 --buttons-clr: grey;
+	 --vertical-gap: 1em;
+	 --horizontal-gap: 1em;
 	}
 </style>
