@@ -78,7 +78,6 @@
 		display: flex;
 		flex-direction: column;		
 		align-items: center;
-		background-color: red;
 	}
 	
 
@@ -105,12 +104,12 @@
 	}
 
 	.buttons > button{
-		color: var(--buttons-clr, red);
+		color: var(--buttons-clr, none);
 		margin-right: var(--horizontal-gap, 0.5em);
 	}
 
 	.buttons > button:last-child{
-		color: var(--buttons-clr, red);
+		color: var(--buttons-clr, none);
 		margin-right: 0em;
 	}
 </style>
