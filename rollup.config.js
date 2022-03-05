@@ -7,10 +7,11 @@ import css from 'rollup-plugin-css-only';
 import fs from 'fs'
 
 const production = !process.env.ROLLUP_WATCH;
-const libArray = fs.readdirSync('./src/web-components').map(file => {
-	return './src/web-components/' + file
-});
+// const libArray = fs.readdirSync('./src/web-components').map(file => {
+// 	return './src/web-components/' + file
+// });
 
+const libArray = ['./src/web-components/Crud/index.svelte', './src/web-components/Crud/CrudButtons.svelte'];
 
 function serve() {
 	let server;
@@ -37,7 +38,7 @@ export default [{
 	input: libArray,
 	output: {
 		sourcemap: true,
-		format: 'iife',
+		format: 'es',
 		dir: 'public/build/web-components'
 	},
 	experimentalCodeSplitting: true,
@@ -55,10 +56,6 @@ export default [{
 				customElement: true,
 			}
 		}),
-		// we'll extract any component CSS out into
-		// a separate file - better for performance
-		css({ output: 'bundle.css' }),
-
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration -

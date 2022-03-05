@@ -34,6 +34,21 @@
 		people = people;
 	}
 
+	const buttonClicked = (type) => {
+		switch (type) {
+			case "create":
+				create()
+				break;
+			case "update":
+				update()
+				break;
+			case "delete":
+				remove()
+				break;
+			default:
+				break;
+		}
+	}
 	function remove() {
 		// Remove selected person from the source array (people), not the filtered array
 		const index = people.indexOf(selected);
@@ -65,15 +80,11 @@
 		</div>		
 	</div>
 
-	<div class='buttons'>
-		<button on:click={create} disabled="{!first || !last}">create</button>
-		<button on:click={update} disabled="{!first || !last || !selected}">update</button>
-		<button on:click={remove} disabled="{!selected}">delete</button>
-	</div>
+	<crud-app-buttons on:buttonClicked={e => buttonClicked(e.detail)} first={first}  last={last} selected={selected}/>
 </div>
 
 
-<style>
+<style global>
 	:host{
 		display: flex;
 		flex-direction: column;		
@@ -96,20 +107,5 @@
 	* {
 		font-family: inherit;
 		font-size: inherit;
-	}
-
-	.buttons {
-		display: flex;
-		justify-content: center;
-	}
-
-	.buttons > button{
-		color: var(--buttons-clr, none);
-		margin-right: var(--horizontal-gap, 0.5em);
-	}
-
-	.buttons > button:last-child{
-		color: var(--buttons-clr, none);
-		margin-right: 0em;
 	}
 </style>

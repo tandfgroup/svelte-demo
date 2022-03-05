@@ -25,7 +25,7 @@
 	}
 
 	crud-app {
-	 /* --buttons-clr: grey; */
+	 --buttons-clr: grey;
 	 --vertical-gap: 1em;
 	 --horizontal-gap: 1em;
 	}
