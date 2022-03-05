@@ -4,12 +4,17 @@
 	export let first;
 	export let last;
 	export let selected;
-	const dispatch = createEventDispatcher()
+	let el;
 	function buttonClicked(type) {
-		dispatch("buttonClicked", type)
+		const customEvent = new CustomEvent("buttonClicked", {
+				detail: type,
+				composed: true,
+				bubbles: true
+		})
+		el.dispatchEvent(customEvent)
 	}
 </script>
-<div class='buttons'>
+<div class='buttons' bind:this={el}>
 	<button on:click={e => buttonClicked("create")} disabled="{!first || !last}">create</button>
 	<button on:click={e => buttonClicked("update")} disabled="{!first || !last || !selected}">update</button>
 	<button on:click={e => buttonClicked("delete")} disabled="{!selected}">delete</button>

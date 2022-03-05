@@ -35,6 +35,7 @@
 	}
 
 	const buttonClicked = (type) => {
+		alert(JSON.stringify(type))
 		switch (type) {
 			case "create":
 				create()
