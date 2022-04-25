@@ -1,5 +1,8 @@
-<svelte:options tag="crud-app"/>
+<svelte:options tag="crud-element" />
 <script>
+import CrudButtons from "./CrudButtons.svelte";
+
+
 	let people = [
 		{ first: 'Hans', last: 'Emil' },
 		{ first: 'Max', last: 'Mustermann' },
@@ -64,6 +67,7 @@
 	}
 </script>
 <div>
+	<slot></slot>
 	<div class="actions">
 		<div class="select-items">
 			<input placeholder="filter prefix" bind:value={prefix}>
@@ -80,32 +84,38 @@
 		</div>		
 	</div>
 
-	<crud-app-buttons on:buttonClicked={e => buttonClicked(e.detail)} first={first}  last={last} selected={selected}/>
+	<CrudButtons on:buttonClicked={e => buttonClicked(e.detail)} first={first}  last={last} selected={selected}>
+		<style>
+			button {
+				/* font-size: xx-small; */
+			}
+		</style>
+		</CrudButtons>
+
 </div>
 
 
-<style global>
+<style lang="scss" type="text/scss">
 	:host{
 		display: flex;
 		flex-direction: column;		
 		align-items: center;
 	}
-	
+		.actions{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			margin-bottom: var(--vertical-gap, 0.5em);
+		}
+		.select-items{
+			display: flex;
+			flex-direction: column;
+			margin-right: var(--horizontal-gap, 0.5em);
+		}
 
-	.actions{
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-		margin-bottom: var(--vertical-gap, 0.5em);
-	}
-	.select-items{
-		display: flex;
-		flex-direction: column;
-		margin-right: var(--horizontal-gap, 0.5em);
-	}
-	
-	* {
-		font-family: inherit;
-		font-size: inherit;
-	}
+		* {
+			font-family: inherit;
+			font-size: inherit;
+		}
+
 </style>

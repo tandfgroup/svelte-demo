@@ -4,130 +4,78 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-import fs from 'fs'
+import pkg from './package.json';
+
+const name = pkg.name
+	.replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
+	.replace(/^\w/, m => m.toUpperCase())
+	.replace(/-\w/g, m => m[1].toUpperCase());
 
 const production = !process.env.ROLLUP_WATCH;
-// const libArray = fs.readdirSync('./src/web-components').map(file => {
-// 	return './src/web-components/' + file
-// });
-
-const libArray = ['./src/web-components/Crud/index.svelte', './src/web-components/Crud/CrudButtons.svelte'];
 
 function serve() {
-	let server;
+  let server;
 
-	function toExit() {
-		if (server) server.kill(0);
-	}
+  function toExit() {
+    if (server) server.kill(0);
+  }
 
-	return {
-		writeBundle() {
-			if (server) return;
-			server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
-				stdio: ['ignore', 'inherit', 'inherit'],
-				shell: true
-			});
+  return {
+    writeBundle() {
+      if (server) return;
+      server = require('child_process').spawn('npm', ['run', 'start', '--', '--dev'], {
+        stdio: ['ignore', 'inherit', 'inherit'],
+        shell: true,
+      });
 
-			process.on('SIGTERM', toExit);
-			process.on('exit', toExit);
-		}
-	};
+      process.on('SIGTERM', toExit);
+      process.on('exit', toExit);
+    },
+  };
 }
 
-export default [{
-	input: libArray,
-	output: {
-		sourcemap: true,
-		format: 'es',
-		dir: 'public/build/web-components'
-	},
-	experimentalCodeSplitting: true,
-	experimentalDynamicImport: true,
-	plugins: [
-		// svelte({
-    //   exclude: ['./src/web-components/*']
-    // }),
-		svelte({
-			// exclude:['./src/App.svelte'],
-			compilerOptions: {
-				// enable run-time checks when not in production
-				dev: !production,
-				cssHash: ({css:cssInner, hash}) => `tnf-${hash(cssInner)}`,
-				customElement: true,
-			}
-		}),
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration -
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
-		resolve({
-			browser: true,
-			dedupe: ['svelte']
-		}),
-		commonjs(),
-
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
-		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
-
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
-	],
-	watch: {
-		clearScreen: false
-	}
-},
-{
-	input: ['src/main.js'],
-	output: {
-		sourcemap: true,
-		format: 'iife',
-		name: 'app',
-		file: 'public/build/bundle.js'
-
-	},
-	plugins: [
+function plugins(customElement = false){
+	return [
 		svelte({
 			compilerOptions: {
-				// enable run-time checks when not in production
 				dev: !production,
-				cssHash: ({css:cssInner, hash}) => `tnf-${hash(cssInner)}`,
-			}
+				customElement,
+			},
 		}),
-		// we'll extract any component CSS out into
-		// a separate file - better for performance
 		css({ output: 'bundle.css' }),
-
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration -
-		// consult the documentation for details:
-		// https://github.com/rollup/plugins/tree/master/packages/commonjs
 		resolve({
 			browser: true,
-			dedupe: ['svelte']
+			dedupe: ['svelte'],
 		}),
 		commonjs(),
-
-		// In dev mode, call `npm run start` once
-		// the bundle has been generated
 		!production && serve(),
-
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
 		!production && livereload('public'),
+		production && terser(),
+	];
+}
 
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
-	],
-	watch: {
-		clearScreen: false
-	}
-},];
+export default [
+	{
+		input: 'src/web-components/index.js',
+		output: [
+			{ file: pkg.module, 'format': 'es' },
+			{ file: pkg.main, 'format': 'umd', name }
+		],
+		plugins: [
+			svelte({ compilerOptions:{customElement: true}, emitCss: false, include: /\.wc\.svelte$/ }),
+			svelte({ compilerOptions: {customElement: false}, emitCss: false, exclude: /\.wc\.svelte$/ }),
+			resolve()
+		]
+	}, {
+  input: 'src/main.js',
+  output: {
+    sourcemap: true,
+    format: 'iife',
+    name: 'app',
+    file: 'public/build/bundle.js',
+  },
+  plugins: plugins(),
+  watch: {
+    clearScreen: false,
+  },
+}];

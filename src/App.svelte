@@ -1,6 +1,13 @@
+<script>
+	$:name = "Shivang"
+</script>
 <main>
-	<h1>Welcome to Svelte!</h1>
-	<crud-app/>
+	<h1>Welcome to Svelte! {name}</h1>
+	<input bind:value={name}>
+	<crud-element>
+		Welcome Slot
+	</crud-element>
+
 </main>
 
 <style>
@@ -25,7 +32,7 @@
 	}
 
 	crud-app {
-	 --buttons-clr: grey;
+	 --buttons-clr: yellow;
 	 --vertical-gap: 1em;
 	 --horizontal-gap: 1em;
 	}

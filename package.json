@@ -2,6 +2,8 @@
   "name": "svelte-app",
   "version": "1.0.0",
   "private": true,
+  "module": "public/build/wc/index.mjs",
+  "main": "public/build/wc/index.js",
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
@@ -10,12 +12,15 @@
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
-    "rollup": "^2.3.4",
+    "rollup": "^2.70.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-serve": "^1.1.0",
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
-    "svelte": "^3.0.0"
+    "sass": "^1.50.1",
+    "svelte": "^3.47.0",
+    "svelte-preprocess": "^4.10.6"
   },
   "dependencies": {
     "sirv-cli": "^2.0.0"

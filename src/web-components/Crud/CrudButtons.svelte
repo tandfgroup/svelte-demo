@@ -1,6 +1,5 @@
-<svelte:options tag="crud-app-buttons"/>
 <script>
-	import { createEventDispatcher } from "svelte";
+	import { createEventDispatcher, onMount } from "svelte";
 	export let first;
 	export let last;
 	export let selected;
@@ -13,6 +12,14 @@
 		})
 		el.dispatchEvent(customEvent)
 	}
+
+	onMount(() => {
+		fetch("https://reqres.in/api/products/3").then(async data => {
+			console.log(await data.json())
+		}).catch(error => {
+			console.log(error)
+		})
+	})
 </script>
 <div class='buttons' bind:this={el}>
 	<button on:click={e => buttonClicked("create")} disabled="{!first || !last}">create</button>
@@ -24,10 +31,11 @@
 .buttons {
 	display: flex;
 	justify-content: center;
+	color: red;
 }
 
 .buttons > button{
-	color: var(--buttons-clr, none);
+	color: red;
 	margin-right: var(--horizontal-gap, 0em);
 }
 
@@ -36,3 +44,5 @@
 	margin-right: 0em;
 }
 </style>
+
+<slot></slot>
