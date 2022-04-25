@@ -155,6 +155,11 @@
         const selected_option = select.querySelector(':checked') || select.options[0];
         return selected_option && selected_option.__value;
     }
+    function custom_event(type, detail, bubbles = false) {
+        const e = document.createEvent('CustomEvent');
+        e.initCustomEvent(type, bubbles, false, detail);
+        return e;
+    }
     function attribute_to_object(attributes) {
         const result = {};
         for (const attribute of attributes) {
@@ -174,6 +179,20 @@
     }
     function onMount(fn) {
         get_current_component().$$.on_mount.push(fn);
+    }
+    function createEventDispatcher() {
+        const component = get_current_component();
+        return (type, detail) => {
+            const callbacks = component.$$.callbacks[type];
+            if (callbacks) {
+                // TODO are there situations where events could be dispatched
+                // in a server (non-DOM) environment?
+                const event = custom_event(type, detail);
+                callbacks.slice().forEach(fn => {
+                    fn.call(component, event);
+                });
+            }
+        };
     }
 
     const dirty_components = [];
@@ -584,17 +603,11 @@
     	let { first } = $$props;
     	let { last } = $$props;
     	let { selected } = $$props;
+    	const dispatch = createEventDispatcher();
     	let el;
 
     	function buttonClicked(type) {
-    		const customEvent = new CustomEvent("buttonClicked",
-    		{
-    				detail: type,
-    				composed: true,
-    				bubbles: true
-    			});
-
-    		el.dispatchEvent(customEvent);
+    		dispatch("buttonClicked", type);
     	}
 
     	onMount(() => {
