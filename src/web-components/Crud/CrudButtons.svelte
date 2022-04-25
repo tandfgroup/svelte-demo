@@ -3,14 +3,10 @@
 	export let first;
 	export let last;
 	export let selected;
+	const dispatch = createEventDispatcher()
 	let el;
 	function buttonClicked(type) {
-		const customEvent = new CustomEvent("buttonClicked", {
-				detail: type,
-				composed: true,
-				bubbles: true
-		})
-		el.dispatchEvent(customEvent)
+		dispatch("buttonClicked", type)
 	}
 
 	onMount(() => {
