@@ -4,14 +4,27 @@ import resolve from '@rollup/plugin-node-resolve';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
-import pkg from './package.json';
-
-const name = pkg.name
-	.replace(/^(@\S+\/)?(svelte-)?(\S+)/, '$3')
-	.replace(/^\w/, m => m.toUpperCase())
-	.replace(/-\w/g, m => m[1].toUpperCase());
+import * as fs from 'fs';
 
 const production = !process.env.ROLLUP_WATCH;
+
+function generateComponentConfig() {
+	const dir = fs.readdirSync("./src/web-components");
+	return dir.map(folderName => {
+		return {
+			input: [`src/web-components/${folderName}/index.js`],
+			output: [
+				{ file: `public/build/wc/${folderName}.mjs`, 'format': 'es' },
+				{ file: `public/build/wc/${folderName}.js`, 'format': 'umd', name: folderName }
+			],
+			plugins: [
+				svelte({ compilerOptions:{customElement: true}, emitCss: false, include: /\.wc\.svelte$/ }),
+				svelte({ compilerOptions: {customElement: false}, emitCss: false, exclude: /\.wc\.svelte$/ }),
+				resolve()
+			]
+		};
+	});
+}
 
 function serve() {
   let server;
@@ -55,18 +68,7 @@ function plugins(customElement = false){
 }
 
 export default [
-	{
-		input: 'src/web-components/index.js',
-		output: [
-			{ file: pkg.module, 'format': 'es' },
-			{ file: pkg.main, 'format': 'umd', name }
-		],
-		plugins: [
-			svelte({ compilerOptions:{customElement: true}, emitCss: false, include: /\.wc\.svelte$/ }),
-			svelte({ compilerOptions: {customElement: false}, emitCss: false, exclude: /\.wc\.svelte$/ }),
-			resolve()
-		]
-	}, {
+	...generateComponentConfig(), {
   input: 'src/main.js',
   output: {
     sourcemap: true,
