@@ -20,8 +20,10 @@ function generateComponentConfig() {
 			plugins: [
 				svelte({ compilerOptions:{customElement: true}, emitCss: false, include: /\.wc\.svelte$/ }),
 				svelte({ compilerOptions: {customElement: false}, emitCss: false, exclude: /\.wc\.svelte$/ }),
-				resolve()
-			]
+				resolve(),
+				commonjs(),
+				production && terser()
+			],
 		};
 	});
 }

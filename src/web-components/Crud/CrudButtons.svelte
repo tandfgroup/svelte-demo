@@ -1,8 +1,11 @@
 <script>
 	import { createEventDispatcher, onMount } from "svelte";
+	import { Button, Styles } from "sveltestrap"
+
 	export let first;
 	export let last;
 	export let selected;
+
 	const dispatch = createEventDispatcher()
 	let el;
 	function buttonClicked(type) {
@@ -17,28 +20,10 @@
 		})
 	})
 </script>
-<div class='buttons' bind:this={el}>
-	<button on:click={e => buttonClicked("create")} disabled="{!first || !last}">create</button>
-	<button on:click={e => buttonClicked("update")} disabled="{!first || !last || !selected}">update</button>
-	<button on:click={e => buttonClicked("delete")} disabled="{!selected}">delete</button>
+<div class='text-center' bind:this={el}>
+	<Button color="primary" on:click={e => buttonClicked("create")} disabled="{!first || !last}">create</Button>
+	<Button color="primary" on:click={e => buttonClicked("update")} disabled="{!first || !last || !selected}">update</Button>
+	<Button color="primary" on:click={e => buttonClicked("delete")} disabled="{!selected}">delete</Button>
 </div>
-
-<style>
-.buttons {
-	display: flex;
-	justify-content: center;
-	color: red;
-}
-
-.buttons > button{
-	color: red;
-	margin-right: var(--horizontal-gap, 0em);
-}
-
-.buttons > button:last-child{
-	color: var(--buttons-clr, none);
-	margin-right: 0em;
-}
-</style>
 
 <slot></slot>

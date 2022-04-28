@@ -1,36 +1,13 @@
 <script>
-	$:name = "Shivang"
+  import { Col, Container, Row } from 'sveltestrap';
 </script>
-<main>
-	<h1>Welcome to Svelte! {name}</h1>
-	<input bind:value={name}>
+<Container lg>
 	<crud-element>
-		Welcome Slot
+		Basic Crud Element
 	</crud-element>
-
-</main>
+</Container>
 
 <style>
-	main {
-		text-align: center;
-		padding: 1em;
-		max-width: 240px;
-		margin: 0 auto;
-	}
-
-	h1 {
-		color: #ff3e00;
-		text-transform: uppercase;
-		font-size: 4em;
-		font-weight: 100;
-	}
-
-	@media (min-width: 640px) {
-		main {
-			max-width: none;
-		}
-	}
-
 	crud-app {
 	 --buttons-clr: yellow;
 	 --vertical-gap: 1em;

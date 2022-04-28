@@ -1,8 +1,8 @@
 <svelte:options tag="crud-element" />
 <script>
 import CrudButtons from "./CrudButtons.svelte";
-
-
+import { Input, FormGroup, Label, Container, Row, Col } from "sveltestrap"
+	let radioGroup = 0;
 	let people = [
 		{ first: 'Hans', last: 'Emil' },
 		{ first: 'Max', last: 'Mustermann' },
@@ -14,14 +14,17 @@ import CrudButtons from "./CrudButtons.svelte";
 	let last = '';
 	let i = 0;
 
+	$: {
+		console.log(radioGroup)
+	}
 	$: filteredPeople = prefix
 		? people.filter(person => {
 			const name = `${person.last}, ${person.first}`;
-			return name.toLowerCase().startsWith(prefix.toLowerCase());
+			return name.toLowerCase().indexOf(prefix.toLowerCase()) > -1;
 		})
 		: people;
 
-	$: selected = filteredPeople[i];
+	$: selected = filteredPeople[radioGroup];
 
 	$: reset_inputs(selected);
 
@@ -66,56 +69,79 @@ import CrudButtons from "./CrudButtons.svelte";
 		last = person ? person.last : '';
 	}
 </script>
-<div>
-	<slot></slot>
-	<div class="actions">
-		<div class="select-items">
-			<input placeholder="filter prefix" bind:value={prefix}>
-		
-			<select bind:value={i} size={5}>
+<Container>
+	<Row>
+		<Col>
+			<h3 class="heading text-center">
+				<slot></slot>
+			</h3>
+		</Col>
+	</Row>
+	<Row>
+		<Col>
+			<FormGroup>
+				<Label for="filterprefix">
+					Filter Prefix
+				</Label>
+				<Input id="filterprefix" placeholder="filter prefix" bind:value={prefix}/>
+			</FormGroup>
+		</Col>
+		<Col>
+			<FormGroup>
+				<Label for="first">
+					First Name
+				</Label>
+				<Input id="first" bind:value={first}/>
+			</FormGroup>
+		</Col>
+		<Col>
+			<FormGroup>
+				<Label for="Last Name">
+					Last Name
+				</Label>
+				<Input id="Last Name" bind:value={last}/>
+			</FormGroup>	
+		</Col>
+	</Row>
+	<Row>
+		<Col>
+			<FormGroup>
 				{#each filteredPeople as person, i}
-					<option value={i}>{person.last}, {person.first}</option>
+					<Input
+						id={i}
+						type="radio"
+						bind:group={radioGroup}
+						value={i}
+						label={`${person.last}, ${person.first}`}
+					/>
 				{/each}
-			</select>
-		</div>
-		<div>
-			<label><input bind:value={first} placeholder="first"></label>
-			<label><input bind:value={last} placeholder="last"></label>
-		</div>		
-	</div>
+			</FormGroup>
+		</Col>
+	</Row>
+	<Row>
+		<Col>
+			<CrudButtons on:buttonClicked={e => buttonClicked(e.detail)} first={first}  last={last} selected={selected}>
+				<style>
+					button {
+						/* font-size: xx-small; */
+					}
+				</style>
+			</CrudButtons>
+		</Col>
+	</Row>
+</Container>
 
-	<CrudButtons on:buttonClicked={e => buttonClicked(e.detail)} first={first}  last={last} selected={selected}>
-		<style>
-			button {
-				/* font-size: xx-small; */
-			}
-		</style>
-		</CrudButtons>
-
-</div>
 
 
 <style lang="scss" type="text/scss">
+	@import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";
 	:host{
 		display: flex;
 		flex-direction: column;		
 		align-items: center;
 	}
-		.actions{
-			display: flex;
-			flex-direction: row;
-			justify-content: center;
-			margin-bottom: var(--vertical-gap, 0.5em);
-		}
-		.select-items{
-			display: flex;
-			flex-direction: column;
-			margin-right: var(--horizontal-gap, 0.5em);
-		}
-
-		* {
-			font-family: inherit;
-			font-size: inherit;
+		.heading{
+			color: blueviolet;
 		}
 
 </style>
