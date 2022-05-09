@@ -24,6 +24,9 @@
     "svelte-preprocess": "^4.10.6"
   },
   "dependencies": {
+    "lwc": "^2.13.3",
+    "lwc-clock-utils": "0.0.3",
+    "lwc-recipes-oss-ui-components": "^0.3.2",
     "sirv-cli": "^2.0.0",
     "sveltestrap": "^5.9.0"
   }
