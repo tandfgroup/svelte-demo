@@ -1,7 +1,6 @@
 <script>
-
   import { Col, Container, Row } from 'sveltestrap';
-	
+
 </script>
 <Container lg>
 	<crud-element>
@@ -9,6 +8,7 @@
 	</crud-element>
 	<tnf-list-ce/>
 	<tnf-button-ce/>
+	<!-- <Button/> -->
 </Container>
 
 <style>
