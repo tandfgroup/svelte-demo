@@ -5,13 +5,16 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import * as fs from 'fs';
+const pkg = require('./package.json');
 
 const production = !process.env.ROLLUP_WATCH;
 
 function generateComponentConfig() {
+	fs.rmSync("public/build/wc", { recursive: true, force: true });
 	const dir = fs.readdirSync("./src/web-components");
 	return dir.map(folderName => {
 		return {
+			external : Object.keys(pkg.dependencies),
 			input: [`src/web-components/${folderName}/index.js`],
 			output: [
 				{ file: `public/build/wc/${folderName}.mjs`, 'format': 'es' },
