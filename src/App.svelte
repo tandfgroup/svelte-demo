@@ -5,6 +5,10 @@
 	<crud-element>
 		Basic Crud Element
 	</crud-element>
+	<tnf-list-ce/>
+	<tnf-button-ce/>
+	<tnf-accordion/>
+	<!-- <Button/> -->
 </Container>
 
 <style>
