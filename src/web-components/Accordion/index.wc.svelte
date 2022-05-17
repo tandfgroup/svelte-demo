@@ -66,11 +66,13 @@
 </ul>
 
 <style lang="scss" type="text/scss">
-  @import "./assets/styles/salesforce-lightning-design-system.css";
+  @import "./assets/styles/salesforce-lightning-design-system.min.css";
   :host {
     display: flex;
     flex-direction: column;
     align-items: center;
+
+		--slds-c-accordion-color-border: pink
   }
   .heading {
     color: blueviolet;
