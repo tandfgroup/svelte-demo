@@ -1,6 +1,10 @@
 <svelte:options tag="tnf-accordion" />
 
 <script>
+	let showMe = false
+	setTimeout(() => {
+		showMe = true
+	}, 100)
 	const scriptLoaded = () => {
 		console.log("script loaded")
 	}
@@ -31,48 +35,56 @@
 	}
 </script>
 
-<ul class="slds-accordion">
-	{ #each data as item, index }
-	<li class="slds-accordion__list-item" on:click={e => onItemClick(index)}>
-    <section class="slds-accordion__section {item.isOpen && 'slds-is-open'}">
-      <div class="slds-accordion__summary">
-        <h2 class="slds-accordion__summary-heading">
-          <button
-            class="slds-button slds-button_reset slds-accordion__summary-action"
-            aria-controls="referenceId-42"
-            aria-expanded="true"
-            title={item.title}
-          >
-            <svg
-              class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left"
-              aria-hidden="true"
-            >
-              <use
-                xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"
-              />
-            </svg>
-            <span class="slds-accordion__summary-content"
-              >{item.title}</span
-            >
-          </button>
-        </h2>
-      </div>
-      <div class="slds-accordion__content" id="referenceId-42">
-        {item.content}
-      </div>
-    </section>
-  </li>
-	{ /each }
+{#if showMe}
+	<h3 class="heading text-center">
+		<slot></slot>
+	</h3>
+	<ul class="slds-accordion">
+		{ #each data as item, index }
+		<li class="slds-accordion__list-item" on:click={e => onItemClick(index)}>
+			<section class="slds-accordion__section {item.isOpen && 'slds-is-open'}">
+				<div class="slds-accordion__summary">
+					<h2 class="slds-accordion__summary-heading">
+						<button
+							class="slds-button slds-button_reset slds-accordion__summary-action"
+							aria-controls="referenceId-42"
+							aria-expanded="true"
+							title={item.title}
+						>
+							<svg
+								class="slds-accordion__summary-action-icon slds-button__icon slds-button__icon_left"
+								aria-hidden="true"
+							>
+								<use
+									xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#switch"
+								/>
+							</svg>
+							<span class="slds-accordion__summary-content"
+								>{item.title}</span
+							>
+						</button>
+					</h2>
+				</div>
+				<div class="slds-accordion__content" id="referenceId-42">
+					{item.content}
+				</div>
+			</section>
+		</li>
+		{ /each }
 </ul>
 
+{/if}
+
 <style lang="scss" type="text/scss">
-  @import "./assets/styles/salesforce-lightning-design-system.min.css";
+  @import "/assets/styles/salesforce-lightning-design-system.min.css";
   :host {
     display: flex;
     flex-direction: column;
     align-items: center;
 
-		--slds-c-accordion-color-border: pink
+		--slds-c-accordion-color-border: pink;
+		margin: 5em;
+		
   }
   .heading {
     color: blueviolet;

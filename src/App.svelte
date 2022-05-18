@@ -1,5 +1,6 @@
 <script>
   import { Col, Container, Row } from 'sveltestrap';
+	
 </script>
 <Container lg>
 	<crud-element>
@@ -7,7 +8,9 @@
 	</crud-element>
 	<tnf-list-ce/>
 	<tnf-button-ce/>
-	<tnf-accordion/>
+	<tnf-accordion>
+		<strong>Accordion</strong> based on  <strong>Lighting Design System</strong>
+	</tnf-accordion>
 	<!-- <Button/> -->
 </Container>
 
