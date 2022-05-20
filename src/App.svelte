@@ -20,4 +20,7 @@
 	 --vertical-gap: 1em;
 	 --horizontal-gap: 1em;
 	}
+	tnf-accordion{
+		--slds-c-accordion-color-border:blue
+	}
 </style>

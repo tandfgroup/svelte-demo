@@ -25,7 +25,7 @@ function generateComponentConfig() {
 				svelte({ compilerOptions: {customElement: false}, emitCss: false, exclude: /\.wc\.svelte$/ }),
 				resolve(),
 				commonjs(),
-				production && terser()
+				// production && terser()
 			],
 		};
 	});
@@ -68,7 +68,7 @@ function plugins(customElement = false){
 		commonjs(),
 		!production && serve(),
 		!production && livereload('public'),
-		production && terser(),
+		// production && terser(),
 	];
 }
 

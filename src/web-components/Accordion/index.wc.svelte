@@ -82,7 +82,6 @@
     flex-direction: column;
     align-items: center;
 
-		--slds-c-accordion-color-border: pink;
 		margin: 5em;
 		
   }
