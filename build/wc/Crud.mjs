@@ -1,1 +1,1947 @@
-import{Button as t,Container as e,Row as n,Col as o,FormGroup as r,Label as s,Input as $}from"sveltestrap";function c(){}function i(t){return t()}function l(){return Object.create(null)}function f(t){t.forEach(i)}function a(t){return"function"==typeof t}function u(t,e){return t!=t?e==e:t!==e||t&&"object"==typeof t||"function"==typeof t}function p(t){return 0===Object.keys(t).length}function d(t,e,n,o){return t[1]&&o?function(t,e){for(const n in e)t[n]=e[n];return t}(n.ctx.slice(),t[1](o(e))):n.ctx}function m(t,e){t.appendChild(e)}function g(t,e,n){t.insertBefore(e,n||null)}function h(t){t.parentNode.removeChild(t)}function x(t){return document.createElement(t)}function y(t){return document.createTextNode(t)}function b(){return y(" ")}function w(t,e,n){null==n?t.removeAttribute(e):t.getAttribute(e)!==n&&t.setAttribute(e,n)}function v(t){const e={};for(const n of t)e[n.name]=n.value;return e}let _;function k(t){_=t}function E(){if(!_)throw new Error("Function called outside component initialization");return _}function C(){const t=E();return(e,n)=>{const o=t.$$.callbacks[e];if(o){const r=function(t,e,n=!1){const o=document.createEvent("CustomEvent");return o.initCustomEvent(t,n,!1,e),o}(e,n);o.slice().forEach((e=>{e.call(t,r)}))}}}const L=[],M=[],N=[],j=[],O=Promise.resolve();let T=!1;function H(t){N.push(t)}function A(t){j.push(t)}const F=new Set;let R=0;function S(){const t=_;do{for(;R<L.length;){const t=L[R];R++,k(t),q(t.$$)}for(k(null),L.length=0,R=0;M.length;)M.pop()();for(let t=0;t<N.length;t+=1){const e=N[t];F.has(e)||(F.add(e),e())}N.length=0}while(L.length);for(;j.length;)j.pop()();T=!1,F.clear(),k(t)}function q(t){if(null!==t.fragment){t.update(),f(t.before_update);const e=t.dirty;t.dirty=[-1],t.fragment&&t.fragment.p(t.ctx,e),t.after_update.forEach(H)}}const z=new Set;let B,P;function D(t,e){t&&t.i&&(z.delete(t),t.i(e))}function G(t,e,n,o){if(t&&t.o){if(z.has(t))return;z.add(t),B.c.push((()=>{z.delete(t),o&&(n&&t.d(1),o())})),t.o(e)}}function I(t,e,n){const o=t.$$.props[e];void 0!==o&&(t.$$.bound[o]=n,n(t.$$.ctx[o]))}function J(t){t&&t.c()}function K(t,e,n,o){const{fragment:r,on_mount:s,on_destroy:$,after_update:c}=t.$$;r&&r.m(e,n),o||H((()=>{const e=s.map(i).filter(a);$?$.push(...e):f(e),t.$$.on_mount=[]})),c.forEach(H)}function Q(t,e){const n=t.$$;null!==n.fragment&&(f(n.on_destroy),n.fragment&&n.fragment.d(e),n.on_destroy=n.fragment=null,n.ctx=[])}function U(t,e){-1===t.$$.dirty[0]&&(L.push(t),T||(T=!0,O.then(S)),t.$$.dirty.fill(0)),t.$$.dirty[e/31|0]|=1<<e%31}function V(t,e,n,o,r,s,$,i=[-1]){const a=_;k(t);const u=t.$$={fragment:null,ctx:null,props:s,update:c,not_equal:r,bound:l(),on_mount:[],on_destroy:[],on_disconnect:[],before_update:[],after_update:[],context:new Map(e.context||(a?a.$$.context:[])),callbacks:l(),dirty:i,skip_bound:!1,root:e.target||a.$$.root};$&&$(u.root);let p=!1;if(u.ctx=n?n(t,e.props||{},((e,n,...o)=>{const s=o.length?o[0]:n;return u.ctx&&r(u.ctx[e],u.ctx[e]=s)&&(!u.skip_bound&&u.bound[e]&&u.bound[e](s),p&&U(t,e)),n})):[],u.update(),p=!0,f(u.before_update),u.fragment=!!o&&o(u.ctx),e.target){if(e.hydrate){const t=function(t){return Array.from(t.childNodes)}(e.target);u.fragment&&u.fragment.l(t),t.forEach(h)}else u.fragment&&u.fragment.c();e.intro&&D(t.$$.fragment),K(t,e.target,e.anchor,e.customElement),S()}k(a)}"function"==typeof HTMLElement&&(P=class extends HTMLElement{constructor(){super(),this.attachShadow({mode:"open"})}connectedCallback(){const{on_mount:t}=this.$$;this.$$.on_disconnect=t.map(i).filter(a);for(const t in this.$$.slotted)this.appendChild(this.$$.slotted[t])}attributeChangedCallback(t,e,n){this[t]=n}disconnectedCallback(){f(this.$$.on_disconnect)}$destroy(){Q(this,1),this.$destroy=c}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(t){this.$$set&&!p(t)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}});function W(t){let e;return{c(){e=y("create")},m(t,n){g(t,e,n)},d(t){t&&h(e)}}}function X(t){let e;return{c(){e=y("update")},m(t,n){g(t,e,n)},d(t){t&&h(e)}}}function Y(t){let e;return{c(){e=y("delete")},m(t,n){g(t,e,n)},d(t){t&&h(e)}}}function Z(e){let n,o,r,s,$,c,i,l;o=new t({props:{color:"primary",disabled:!e[0]||!e[1],$$slots:{default:[W]},$$scope:{ctx:e}}}),o.$on("click",e[6]),s=new t({props:{color:"primary",disabled:!e[0]||!e[1]||!e[2],$$slots:{default:[X]},$$scope:{ctx:e}}}),s.$on("click",e[7]),c=new t({props:{color:"primary",disabled:!e[2],$$slots:{default:[Y]},$$scope:{ctx:e}}}),c.$on("click",e[8]);const f=e[5].default,a=function(t,e,n,o){if(t){const r=d(t,e,n,o);return t[0](r)}}(f,e,e[10],null);return{c(){n=x("div"),J(o.$$.fragment),r=b(),J(s.$$.fragment),$=b(),J(c.$$.fragment),i=b(),a&&a.c(),w(n,"class","text-center")},m(t,f){g(t,n,f),K(o,n,null),m(n,r),K(s,n,null),m(n,$),K(c,n,null),e[9](n),g(t,i,f),a&&a.m(t,f),l=!0},p(t,[e]){const n={};3&e&&(n.disabled=!t[0]||!t[1]),1024&e&&(n.$$scope={dirty:e,ctx:t}),o.$set(n);const r={};7&e&&(r.disabled=!t[0]||!t[1]||!t[2]),1024&e&&(r.$$scope={dirty:e,ctx:t}),s.$set(r);const $={};4&e&&($.disabled=!t[2]),1024&e&&($.$$scope={dirty:e,ctx:t}),c.$set($),a&&a.p&&(!l||1024&e)&&function(t,e,n,o,r,s){if(r){const $=d(e,n,o,s);t.p($,r)}}(a,f,t,t[10],l?function(t,e,n,o){if(t[2]&&o){const r=t[2](o(n));if(void 0===e.dirty)return r;if("object"==typeof r){const t=[],n=Math.max(e.dirty.length,r.length);for(let o=0;o<n;o+=1)t[o]=e.dirty[o]|r[o];return t}return e.dirty|r}return e.dirty}(f,t[10],e,null):function(t){if(t.ctx.length>32){const e=[],n=t.ctx.length/32;for(let t=0;t<n;t++)e[t]=-1;return e}return-1}(t[10]),null)},i(t){l||(D(o.$$.fragment,t),D(s.$$.fragment,t),D(c.$$.fragment,t),D(a,t),l=!0)},o(t){G(o.$$.fragment,t),G(s.$$.fragment,t),G(c.$$.fragment,t),G(a,t),l=!1},d(t){t&&h(n),Q(o),Q(s),Q(c),e[9](null),t&&h(i),a&&a.d(t)}}}function tt(t,e,n){let{$$slots:o={},$$scope:r}=e,{first:s}=e,{last:$}=e,{selected:c}=e;const i=C();let l;function f(t){i("buttonClicked",t)}var a;a=()=>{fetch("https://reqres.in/api/products/3").then((async t=>{console.log(await t.json())})).catch((t=>{console.log(t)}))},E().$$.on_mount.push(a);return t.$$set=t=>{"first"in t&&n(0,s=t.first),"last"in t&&n(1,$=t.last),"selected"in t&&n(2,c=t.selected),"$$scope"in t&&n(10,r=t.$$scope)},[s,$,c,l,f,o,t=>f("create"),t=>f("update"),t=>f("delete"),function(t){M[t?"unshift":"push"]((()=>{l=t,n(3,l)}))},r]}class et extends class{$destroy(){Q(this,1),this.$destroy=c}$on(t,e){const n=this.$$.callbacks[t]||(this.$$.callbacks[t]=[]);return n.push(e),()=>{const t=n.indexOf(e);-1!==t&&n.splice(t,1)}}$set(t){this.$$set&&!p(t)&&(this.$$.skip_bound=!0,this.$$set(t),this.$$.skip_bound=!1)}}{constructor(t){super(),V(this,t,tt,Z,u,{first:0,last:1,selected:2})}}function nt(t,e,n){const o=t.slice();return o[18]=e[n],o[6]=n,o}function ot(t){let e;return{c(){e=x("h3"),e.innerHTML="<slot></slot>",w(e,"class","heading text-center")},m(t,n){g(t,e,n)},p:c,d(t){t&&h(e)}}}function rt(t){let e,n;return e=new o({props:{$$slots:{default:[ot]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048576&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function st(t){let e;return{c(){e=y("Filter Prefix")},m(t,n){g(t,e,n)},d(t){t&&h(e)}}}function $t(t){let e,n,o,r,c;function i(e){t[9](e)}e=new s({props:{for:"filterprefix",$$slots:{default:[st]},$$scope:{ctx:t}}});let l={id:"filterprefix",placeholder:"filter prefix"};return void 0!==t[1]&&(l.value=t[1]),o=new $({props:l}),M.push((()=>I(o,"value",i))),{c(){J(e.$$.fragment),n=b(),J(o.$$.fragment)},m(t,r){K(e,t,r),g(t,n,r),K(o,t,r),c=!0},p(t,n){const s={};1048576&n&&(s.$$scope={dirty:n,ctx:t}),e.$set(s);const $={};!r&&2&n&&(r=!0,$.value=t[1],A((()=>r=!1))),o.$set($)},i(t){c||(D(e.$$.fragment,t),D(o.$$.fragment,t),c=!0)},o(t){G(e.$$.fragment,t),G(o.$$.fragment,t),c=!1},d(t){Q(e,t),t&&h(n),Q(o,t)}}}function ct(t){let e,n;return e=new r({props:{$$slots:{default:[$t]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048578&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function it(t){let e;return{c(){e=y("First Name")},m(t,n){g(t,e,n)},d(t){t&&h(e)}}}function lt(t){let e,n,o,r,c;function i(e){t[10](e)}e=new s({props:{for:"first",$$slots:{default:[it]},$$scope:{ctx:t}}});let l={id:"first"};return void 0!==t[4]&&(l.value=t[4]),o=new $({props:l}),M.push((()=>I(o,"value",i))),{c(){J(e.$$.fragment),n=b(),J(o.$$.fragment)},m(t,r){K(e,t,r),g(t,n,r),K(o,t,r),c=!0},p(t,n){const s={};1048576&n&&(s.$$scope={dirty:n,ctx:t}),e.$set(s);const $={};!r&&16&n&&(r=!0,$.value=t[4],A((()=>r=!1))),o.$set($)},i(t){c||(D(e.$$.fragment,t),D(o.$$.fragment,t),c=!0)},o(t){G(e.$$.fragment,t),G(o.$$.fragment,t),c=!1},d(t){Q(e,t),t&&h(n),Q(o,t)}}}function ft(t){let e,n;return e=new r({props:{$$slots:{default:[lt]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048592&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function at(t){let e;return{c(){e=y("Last Name")},m(t,n){g(t,e,n)},d(t){t&&h(e)}}}function ut(t){let e,n,o,r,c;function i(e){t[11](e)}e=new s({props:{for:"Last Name",$$slots:{default:[at]},$$scope:{ctx:t}}});let l={id:"Last Name"};return void 0!==t[5]&&(l.value=t[5]),o=new $({props:l}),M.push((()=>I(o,"value",i))),{c(){J(e.$$.fragment),n=b(),J(o.$$.fragment)},m(t,r){K(e,t,r),g(t,n,r),K(o,t,r),c=!0},p(t,n){const s={};1048576&n&&(s.$$scope={dirty:n,ctx:t}),e.$set(s);const $={};!r&&32&n&&(r=!0,$.value=t[5],A((()=>r=!1))),o.$set($)},i(t){c||(D(e.$$.fragment,t),D(o.$$.fragment,t),c=!0)},o(t){G(e.$$.fragment,t),G(o.$$.fragment,t),c=!1},d(t){Q(e,t),t&&h(n),Q(o,t)}}}function pt(t){let e,n;return e=new r({props:{$$slots:{default:[ut]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048608&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function dt(t){let e,n,r,s,$,c;return e=new o({props:{$$slots:{default:[ct]},$$scope:{ctx:t}}}),r=new o({props:{$$slots:{default:[ft]},$$scope:{ctx:t}}}),$=new o({props:{$$slots:{default:[pt]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment),n=b(),J(r.$$.fragment),s=b(),J($.$$.fragment)},m(t,o){K(e,t,o),g(t,n,o),K(r,t,o),g(t,s,o),K($,t,o),c=!0},p(t,n){const o={};1048578&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o);const s={};1048592&n&&(s.$$scope={dirty:n,ctx:t}),r.$set(s);const c={};1048608&n&&(c.$$scope={dirty:n,ctx:t}),$.$set(c)},i(t){c||(D(e.$$.fragment,t),D(r.$$.fragment,t),D($.$$.fragment,t),c=!0)},o(t){G(e.$$.fragment,t),G(r.$$.fragment,t),G($.$$.fragment,t),c=!1},d(t){Q(e,t),t&&h(n),Q(r,t),t&&h(s),Q($,t)}}}function mt(t){let e,n,o;function r(e){t[12](e)}let s={id:t[6],type:"radio",value:t[6],label:`${t[18].last}, ${t[18].first}`};return void 0!==t[0]&&(s.group=t[0]),e=new $({props:s}),M.push((()=>I(e,"group",r))),{c(){J(e.$$.fragment)},m(t,n){K(e,t,n),o=!0},p(t,o){const r={};4&o&&(r.label=`${t[18].last}, ${t[18].first}`),!n&&1&o&&(n=!0,r.group=t[0],A((()=>n=!1))),e.$set(r)},i(t){o||(D(e.$$.fragment,t),o=!0)},o(t){G(e.$$.fragment,t),o=!1},d(t){Q(e,t)}}}function gt(t){let e,n,o=t[2],r=[];for(let e=0;e<o.length;e+=1)r[e]=mt(nt(t,o,e));const s=t=>G(r[t],1,1,(()=>{r[t]=null}));return{c(){for(let t=0;t<r.length;t+=1)r[t].c();e=y("")},m(t,o){for(let e=0;e<r.length;e+=1)r[e].m(t,o);g(t,e,o),n=!0},p(t,n){if(5&n){let $;for(o=t[2],$=0;$<o.length;$+=1){const s=nt(t,o,$);r[$]?(r[$].p(s,n),D(r[$],1)):(r[$]=mt(s),r[$].c(),D(r[$],1),r[$].m(e.parentNode,e))}for(B={r:0,c:[],p:B},$=o.length;$<r.length;$+=1)s($);B.r||f(B.c),B=B.p}},i(t){if(!n){for(let t=0;t<o.length;t+=1)D(r[t]);n=!0}},o(t){r=r.filter(Boolean);for(let t=0;t<r.length;t+=1)G(r[t]);n=!1},d(t){!function(t,e){for(let n=0;n<t.length;n+=1)t[n]&&t[n].d(e)}(r,t),t&&h(e)}}}function ht(t){let e,n;return e=new r({props:{$$slots:{default:[gt]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048581&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function xt(t){let e,n;return e=new o({props:{$$slots:{default:[ht]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048581&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function yt(t){let e;return{c(){e=x("style"),e.textContent="button {\n\t\t\t\t\t\t/* font-size: xx-small; */\n\t\t\t\t\t}"},m(t,n){g(t,e,n)},p:c,d(t){t&&h(e)}}}function bt(t){let e,n;return e=new et({props:{first:t[4],last:t[5],selected:t[3],$$slots:{default:[yt]},$$scope:{ctx:t}}}),e.$on("buttonClicked",t[13]),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};16&n&&(o.first=t[4]),32&n&&(o.last=t[5]),8&n&&(o.selected=t[3]),1048576&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function wt(t){let e,n;return e=new o({props:{$$slots:{default:[bt]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment)},m(t,o){K(e,t,o),n=!0},p(t,n){const o={};1048632&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o)},i(t){n||(D(e.$$.fragment,t),n=!0)},o(t){G(e.$$.fragment,t),n=!1},d(t){Q(e,t)}}}function vt(t){let e,o,r,s,$,c,i,l;return e=new n({props:{$$slots:{default:[rt]},$$scope:{ctx:t}}}),r=new n({props:{$$slots:{default:[dt]},$$scope:{ctx:t}}}),$=new n({props:{$$slots:{default:[xt]},$$scope:{ctx:t}}}),i=new n({props:{$$slots:{default:[wt]},$$scope:{ctx:t}}}),{c(){J(e.$$.fragment),o=b(),J(r.$$.fragment),s=b(),J($.$$.fragment),c=b(),J(i.$$.fragment)},m(t,n){K(e,t,n),g(t,o,n),K(r,t,n),g(t,s,n),K($,t,n),g(t,c,n),K(i,t,n),l=!0},p(t,n){const o={};1048576&n&&(o.$$scope={dirty:n,ctx:t}),e.$set(o);const s={};1048626&n&&(s.$$scope={dirty:n,ctx:t}),r.$set(s);const c={};1048581&n&&(c.$$scope={dirty:n,ctx:t}),$.$set(c);const l={};1048632&n&&(l.$$scope={dirty:n,ctx:t}),i.$set(l)},i(t){l||(D(e.$$.fragment,t),D(r.$$.fragment,t),D($.$$.fragment,t),D(i.$$.fragment,t),l=!0)},o(t){G(e.$$.fragment,t),G(r.$$.fragment,t),G($.$$.fragment,t),G(i.$$.fragment,t),l=!1},d(t){Q(e,t),t&&h(o),Q(r,t),t&&h(s),Q($,t),t&&h(c),Q(i,t)}}}function _t(t){let n,o;return n=new e({props:{$$slots:{default:[vt]},$$scope:{ctx:t}}}),{c(){J(n.$$.fragment),this.c=c},m(t,e){K(n,t,e),o=!0},p(t,[e]){const o={};1048639&e&&(o.$$scope={dirty:e,ctx:t}),n.$set(o)},i(t){o||(D(n.$$.fragment,t),o=!0)},o(t){G(n.$$.fragment,t),o=!1},d(t){Q(n,t)}}}function kt(t,e,n){let o,r,s=0,$=[{first:"Hans",last:"Emil"},{first:"Max",last:"Mustermann"},{first:"Roman",last:"Tisch"}],c="",i="",l="",f=0;const a=t=>{switch(t){case"create":n(8,$=$.concat({first:i,last:l})),n(6,f=$.length-1),n(4,i=n(5,l=""));break;case"update":n(3,r.first=i,r),n(3,r.last=l,r),n(8,$);break;case"delete":!function(){const t=$.indexOf(r);n(8,$=[...$.slice(0,t),...$.slice(t+1)]),n(4,i=n(5,l="")),n(6,f=Math.min(f,o.length-2))}()}};return t.$$.update=()=>{var e;1&t.$$.dirty&&console.log(s),258&t.$$.dirty&&n(2,o=c?$.filter((t=>`${t.last}, ${t.first}`.toLowerCase().indexOf(c.toLowerCase())>-1)):$),5&t.$$.dirty&&n(3,r=o[s]),8&t.$$.dirty&&(n(4,i=(e=r)?e.first:""),n(5,l=e?e.last:""))},[s,c,o,r,i,l,f,a,$,function(t){c=t,n(1,c)},function(t){i=t,n(4,i)},function(t){l=t,n(5,l)},function(t){s=t,n(0,s)},t=>a(t.detail)]}class Et extends P{constructor(t){super(),this.shadowRoot.innerHTML='<style>@import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";:host{display:flex;flex-direction:column;align-items:center}.heading{color:blueviolet}</style>',V(this,{target:this.shadowRoot,props:v(this.attributes),customElement:!0},kt,_t,u,{},null),t&&t.target&&g(t.target,this,t.anchor)}}customElements.define("crud-element",Et);export{Et as Crud,et as CrudButtons};
+import { Button, Container, Row, Col, FormGroup, Label, Input } from 'sveltestrap';
+
+function noop() { }
+function assign(tar, src) {
+    // @ts-ignore
+    for (const k in src)
+        tar[k] = src[k];
+    return tar;
+}
+function run(fn) {
+    return fn();
+}
+function blank_object() {
+    return Object.create(null);
+}
+function run_all(fns) {
+    fns.forEach(run);
+}
+function is_function(thing) {
+    return typeof thing === 'function';
+}
+function safe_not_equal(a, b) {
+    return a != a ? b == b : a !== b || ((a && typeof a === 'object') || typeof a === 'function');
+}
+function is_empty(obj) {
+    return Object.keys(obj).length === 0;
+}
+function create_slot(definition, ctx, $$scope, fn) {
+    if (definition) {
+        const slot_ctx = get_slot_context(definition, ctx, $$scope, fn);
+        return definition[0](slot_ctx);
+    }
+}
+function get_slot_context(definition, ctx, $$scope, fn) {
+    return definition[1] && fn
+        ? assign($$scope.ctx.slice(), definition[1](fn(ctx)))
+        : $$scope.ctx;
+}
+function get_slot_changes(definition, $$scope, dirty, fn) {
+    if (definition[2] && fn) {
+        const lets = definition[2](fn(dirty));
+        if ($$scope.dirty === undefined) {
+            return lets;
+        }
+        if (typeof lets === 'object') {
+            const merged = [];
+            const len = Math.max($$scope.dirty.length, lets.length);
+            for (let i = 0; i < len; i += 1) {
+                merged[i] = $$scope.dirty[i] | lets[i];
+            }
+            return merged;
+        }
+        return $$scope.dirty | lets;
+    }
+    return $$scope.dirty;
+}
+function update_slot_base(slot, slot_definition, ctx, $$scope, slot_changes, get_slot_context_fn) {
+    if (slot_changes) {
+        const slot_context = get_slot_context(slot_definition, ctx, $$scope, get_slot_context_fn);
+        slot.p(slot_context, slot_changes);
+    }
+}
+function get_all_dirty_from_scope($$scope) {
+    if ($$scope.ctx.length > 32) {
+        const dirty = [];
+        const length = $$scope.ctx.length / 32;
+        for (let i = 0; i < length; i++) {
+            dirty[i] = -1;
+        }
+        return dirty;
+    }
+    return -1;
+}
+function append(target, node) {
+    target.appendChild(node);
+}
+function insert(target, node, anchor) {
+    target.insertBefore(node, anchor || null);
+}
+function detach(node) {
+    node.parentNode.removeChild(node);
+}
+function destroy_each(iterations, detaching) {
+    for (let i = 0; i < iterations.length; i += 1) {
+        if (iterations[i])
+            iterations[i].d(detaching);
+    }
+}
+function element(name) {
+    return document.createElement(name);
+}
+function text(data) {
+    return document.createTextNode(data);
+}
+function space() {
+    return text(' ');
+}
+function empty() {
+    return text('');
+}
+function attr(node, attribute, value) {
+    if (value == null)
+        node.removeAttribute(attribute);
+    else if (node.getAttribute(attribute) !== value)
+        node.setAttribute(attribute, value);
+}
+function children(element) {
+    return Array.from(element.childNodes);
+}
+function custom_event(type, detail, bubbles = false) {
+    const e = document.createEvent('CustomEvent');
+    e.initCustomEvent(type, bubbles, false, detail);
+    return e;
+}
+function attribute_to_object(attributes) {
+    const result = {};
+    for (const attribute of attributes) {
+        result[attribute.name] = attribute.value;
+    }
+    return result;
+}
+
+let current_component;
+function set_current_component(component) {
+    current_component = component;
+}
+function get_current_component() {
+    if (!current_component)
+        throw new Error('Function called outside component initialization');
+    return current_component;
+}
+function onMount(fn) {
+    get_current_component().$$.on_mount.push(fn);
+}
+function createEventDispatcher() {
+    const component = get_current_component();
+    return (type, detail) => {
+        const callbacks = component.$$.callbacks[type];
+        if (callbacks) {
+            // TODO are there situations where events could be dispatched
+            // in a server (non-DOM) environment?
+            const event = custom_event(type, detail);
+            callbacks.slice().forEach(fn => {
+                fn.call(component, event);
+            });
+        }
+    };
+}
+
+const dirty_components = [];
+const binding_callbacks = [];
+const render_callbacks = [];
+const flush_callbacks = [];
+const resolved_promise = Promise.resolve();
+let update_scheduled = false;
+function schedule_update() {
+    if (!update_scheduled) {
+        update_scheduled = true;
+        resolved_promise.then(flush);
+    }
+}
+function add_render_callback(fn) {
+    render_callbacks.push(fn);
+}
+function add_flush_callback(fn) {
+    flush_callbacks.push(fn);
+}
+// flush() calls callbacks in this order:
+// 1. All beforeUpdate callbacks, in order: parents before children
+// 2. All bind:this callbacks, in reverse order: children before parents.
+// 3. All afterUpdate callbacks, in order: parents before children. EXCEPT
+//    for afterUpdates called during the initial onMount, which are called in
+//    reverse order: children before parents.
+// Since callbacks might update component values, which could trigger another
+// call to flush(), the following steps guard against this:
+// 1. During beforeUpdate, any updated components will be added to the
+//    dirty_components array and will cause a reentrant call to flush(). Because
+//    the flush index is kept outside the function, the reentrant call will pick
+//    up where the earlier call left off and go through all dirty components. The
+//    current_component value is saved and restored so that the reentrant call will
+//    not interfere with the "parent" flush() call.
+// 2. bind:this callbacks cannot trigger new flush() calls.
+// 3. During afterUpdate, any updated components will NOT have their afterUpdate
+//    callback called a second time; the seen_callbacks set, outside the flush()
+//    function, guarantees this behavior.
+const seen_callbacks = new Set();
+let flushidx = 0; // Do *not* move this inside the flush() function
+function flush() {
+    const saved_component = current_component;
+    do {
+        // first, call beforeUpdate functions
+        // and update components
+        while (flushidx < dirty_components.length) {
+            const component = dirty_components[flushidx];
+            flushidx++;
+            set_current_component(component);
+            update(component.$$);
+        }
+        set_current_component(null);
+        dirty_components.length = 0;
+        flushidx = 0;
+        while (binding_callbacks.length)
+            binding_callbacks.pop()();
+        // then, once components are updated, call
+        // afterUpdate functions. This may cause
+        // subsequent updates...
+        for (let i = 0; i < render_callbacks.length; i += 1) {
+            const callback = render_callbacks[i];
+            if (!seen_callbacks.has(callback)) {
+                // ...so guard against infinite loops
+                seen_callbacks.add(callback);
+                callback();
+            }
+        }
+        render_callbacks.length = 0;
+    } while (dirty_components.length);
+    while (flush_callbacks.length) {
+        flush_callbacks.pop()();
+    }
+    update_scheduled = false;
+    seen_callbacks.clear();
+    set_current_component(saved_component);
+}
+function update($$) {
+    if ($$.fragment !== null) {
+        $$.update();
+        run_all($$.before_update);
+        const dirty = $$.dirty;
+        $$.dirty = [-1];
+        $$.fragment && $$.fragment.p($$.ctx, dirty);
+        $$.after_update.forEach(add_render_callback);
+    }
+}
+const outroing = new Set();
+let outros;
+function group_outros() {
+    outros = {
+        r: 0,
+        c: [],
+        p: outros // parent group
+    };
+}
+function check_outros() {
+    if (!outros.r) {
+        run_all(outros.c);
+    }
+    outros = outros.p;
+}
+function transition_in(block, local) {
+    if (block && block.i) {
+        outroing.delete(block);
+        block.i(local);
+    }
+}
+function transition_out(block, local, detach, callback) {
+    if (block && block.o) {
+        if (outroing.has(block))
+            return;
+        outroing.add(block);
+        outros.c.push(() => {
+            outroing.delete(block);
+            if (callback) {
+                if (detach)
+                    block.d(1);
+                callback();
+            }
+        });
+        block.o(local);
+    }
+}
+
+function bind(component, name, callback) {
+    const index = component.$$.props[name];
+    if (index !== undefined) {
+        component.$$.bound[index] = callback;
+        callback(component.$$.ctx[index]);
+    }
+}
+function create_component(block) {
+    block && block.c();
+}
+function mount_component(component, target, anchor, customElement) {
+    const { fragment, on_mount, on_destroy, after_update } = component.$$;
+    fragment && fragment.m(target, anchor);
+    if (!customElement) {
+        // onMount happens before the initial afterUpdate
+        add_render_callback(() => {
+            const new_on_destroy = on_mount.map(run).filter(is_function);
+            if (on_destroy) {
+                on_destroy.push(...new_on_destroy);
+            }
+            else {
+                // Edge case - component was destroyed immediately,
+                // most likely as a result of a binding initialising
+                run_all(new_on_destroy);
+            }
+            component.$$.on_mount = [];
+        });
+    }
+    after_update.forEach(add_render_callback);
+}
+function destroy_component(component, detaching) {
+    const $$ = component.$$;
+    if ($$.fragment !== null) {
+        run_all($$.on_destroy);
+        $$.fragment && $$.fragment.d(detaching);
+        // TODO null out other refs, including component.$$ (but need to
+        // preserve final state?)
+        $$.on_destroy = $$.fragment = null;
+        $$.ctx = [];
+    }
+}
+function make_dirty(component, i) {
+    if (component.$$.dirty[0] === -1) {
+        dirty_components.push(component);
+        schedule_update();
+        component.$$.dirty.fill(0);
+    }
+    component.$$.dirty[(i / 31) | 0] |= (1 << (i % 31));
+}
+function init(component, options, instance, create_fragment, not_equal, props, append_styles, dirty = [-1]) {
+    const parent_component = current_component;
+    set_current_component(component);
+    const $$ = component.$$ = {
+        fragment: null,
+        ctx: null,
+        // state
+        props,
+        update: noop,
+        not_equal,
+        bound: blank_object(),
+        // lifecycle
+        on_mount: [],
+        on_destroy: [],
+        on_disconnect: [],
+        before_update: [],
+        after_update: [],
+        context: new Map(options.context || (parent_component ? parent_component.$$.context : [])),
+        // everything else
+        callbacks: blank_object(),
+        dirty,
+        skip_bound: false,
+        root: options.target || parent_component.$$.root
+    };
+    append_styles && append_styles($$.root);
+    let ready = false;
+    $$.ctx = instance
+        ? instance(component, options.props || {}, (i, ret, ...rest) => {
+            const value = rest.length ? rest[0] : ret;
+            if ($$.ctx && not_equal($$.ctx[i], $$.ctx[i] = value)) {
+                if (!$$.skip_bound && $$.bound[i])
+                    $$.bound[i](value);
+                if (ready)
+                    make_dirty(component, i);
+            }
+            return ret;
+        })
+        : [];
+    $$.update();
+    ready = true;
+    run_all($$.before_update);
+    // `false` as a special case of no DOM component
+    $$.fragment = create_fragment ? create_fragment($$.ctx) : false;
+    if (options.target) {
+        if (options.hydrate) {
+            const nodes = children(options.target);
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            $$.fragment && $$.fragment.l(nodes);
+            nodes.forEach(detach);
+        }
+        else {
+            // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+            $$.fragment && $$.fragment.c();
+        }
+        if (options.intro)
+            transition_in(component.$$.fragment);
+        mount_component(component, options.target, options.anchor, options.customElement);
+        flush();
+    }
+    set_current_component(parent_component);
+}
+let SvelteElement;
+if (typeof HTMLElement === 'function') {
+    SvelteElement = class extends HTMLElement {
+        constructor() {
+            super();
+            this.attachShadow({ mode: 'open' });
+        }
+        connectedCallback() {
+            const { on_mount } = this.$$;
+            this.$$.on_disconnect = on_mount.map(run).filter(is_function);
+            // @ts-ignore todo: improve typings
+            for (const key in this.$$.slotted) {
+                // @ts-ignore todo: improve typings
+                this.appendChild(this.$$.slotted[key]);
+            }
+        }
+        attributeChangedCallback(attr, _oldValue, newValue) {
+            this[attr] = newValue;
+        }
+        disconnectedCallback() {
+            run_all(this.$$.on_disconnect);
+        }
+        $destroy() {
+            destroy_component(this, 1);
+            this.$destroy = noop;
+        }
+        $on(type, callback) {
+            // TODO should this delegate to addEventListener?
+            const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+            callbacks.push(callback);
+            return () => {
+                const index = callbacks.indexOf(callback);
+                if (index !== -1)
+                    callbacks.splice(index, 1);
+            };
+        }
+        $set($$props) {
+            if (this.$$set && !is_empty($$props)) {
+                this.$$.skip_bound = true;
+                this.$$set($$props);
+                this.$$.skip_bound = false;
+            }
+        }
+    };
+}
+/**
+ * Base class for Svelte components. Used when dev=false.
+ */
+class SvelteComponent {
+    $destroy() {
+        destroy_component(this, 1);
+        this.$destroy = noop;
+    }
+    $on(type, callback) {
+        const callbacks = (this.$$.callbacks[type] || (this.$$.callbacks[type] = []));
+        callbacks.push(callback);
+        return () => {
+            const index = callbacks.indexOf(callback);
+            if (index !== -1)
+                callbacks.splice(index, 1);
+        };
+    }
+    $set($$props) {
+        if (this.$$set && !is_empty($$props)) {
+            this.$$.skip_bound = true;
+            this.$$set($$props);
+            this.$$.skip_bound = false;
+        }
+    }
+}
+
+/* src/web-components/Crud/CrudButtons.svelte generated by Svelte v3.47.0 */
+
+function create_default_slot_2$1(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text("create");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (25:1) <Button color="primary" on:click={e => buttonClicked("update")} disabled="{!first || !last || !selected}">
+function create_default_slot_1$1(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text("update");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (26:1) <Button color="primary" on:click={e => buttonClicked("delete")} disabled="{!selected}">
+function create_default_slot$1(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text("delete");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+function create_fragment$1(ctx) {
+	let div;
+	let button0;
+	let t0;
+	let button1;
+	let t1;
+	let button2;
+	let t2;
+	let current;
+
+	button0 = new Button({
+			props: {
+				color: "primary",
+				disabled: !/*first*/ ctx[0] || !/*last*/ ctx[1],
+				$$slots: { default: [create_default_slot_2$1] },
+				$$scope: { ctx }
+			}
+		});
+
+	button0.$on("click", /*click_handler*/ ctx[6]);
+
+	button1 = new Button({
+			props: {
+				color: "primary",
+				disabled: !/*first*/ ctx[0] || !/*last*/ ctx[1] || !/*selected*/ ctx[2],
+				$$slots: { default: [create_default_slot_1$1] },
+				$$scope: { ctx }
+			}
+		});
+
+	button1.$on("click", /*click_handler_1*/ ctx[7]);
+
+	button2 = new Button({
+			props: {
+				color: "primary",
+				disabled: !/*selected*/ ctx[2],
+				$$slots: { default: [create_default_slot$1] },
+				$$scope: { ctx }
+			}
+		});
+
+	button2.$on("click", /*click_handler_2*/ ctx[8]);
+	const default_slot_template = /*#slots*/ ctx[5].default;
+	const default_slot = create_slot(default_slot_template, ctx, /*$$scope*/ ctx[10], null);
+
+	return {
+		c() {
+			div = element("div");
+			create_component(button0.$$.fragment);
+			t0 = space();
+			create_component(button1.$$.fragment);
+			t1 = space();
+			create_component(button2.$$.fragment);
+			t2 = space();
+			if (default_slot) default_slot.c();
+			attr(div, "class", "text-center");
+		},
+		m(target, anchor) {
+			insert(target, div, anchor);
+			mount_component(button0, div, null);
+			append(div, t0);
+			mount_component(button1, div, null);
+			append(div, t1);
+			mount_component(button2, div, null);
+			/*div_binding*/ ctx[9](div);
+			insert(target, t2, anchor);
+
+			if (default_slot) {
+				default_slot.m(target, anchor);
+			}
+
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			const button0_changes = {};
+			if (dirty & /*first, last*/ 3) button0_changes.disabled = !/*first*/ ctx[0] || !/*last*/ ctx[1];
+
+			if (dirty & /*$$scope*/ 1024) {
+				button0_changes.$$scope = { dirty, ctx };
+			}
+
+			button0.$set(button0_changes);
+			const button1_changes = {};
+			if (dirty & /*first, last, selected*/ 7) button1_changes.disabled = !/*first*/ ctx[0] || !/*last*/ ctx[1] || !/*selected*/ ctx[2];
+
+			if (dirty & /*$$scope*/ 1024) {
+				button1_changes.$$scope = { dirty, ctx };
+			}
+
+			button1.$set(button1_changes);
+			const button2_changes = {};
+			if (dirty & /*selected*/ 4) button2_changes.disabled = !/*selected*/ ctx[2];
+
+			if (dirty & /*$$scope*/ 1024) {
+				button2_changes.$$scope = { dirty, ctx };
+			}
+
+			button2.$set(button2_changes);
+
+			if (default_slot) {
+				if (default_slot.p && (!current || dirty & /*$$scope*/ 1024)) {
+					update_slot_base(
+						default_slot,
+						default_slot_template,
+						ctx,
+						/*$$scope*/ ctx[10],
+						!current
+						? get_all_dirty_from_scope(/*$$scope*/ ctx[10])
+						: get_slot_changes(default_slot_template, /*$$scope*/ ctx[10], dirty, null),
+						null
+					);
+				}
+			}
+		},
+		i(local) {
+			if (current) return;
+			transition_in(button0.$$.fragment, local);
+			transition_in(button1.$$.fragment, local);
+			transition_in(button2.$$.fragment, local);
+			transition_in(default_slot, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(button0.$$.fragment, local);
+			transition_out(button1.$$.fragment, local);
+			transition_out(button2.$$.fragment, local);
+			transition_out(default_slot, local);
+			current = false;
+		},
+		d(detaching) {
+			if (detaching) detach(div);
+			destroy_component(button0);
+			destroy_component(button1);
+			destroy_component(button2);
+			/*div_binding*/ ctx[9](null);
+			if (detaching) detach(t2);
+			if (default_slot) default_slot.d(detaching);
+		}
+	};
+}
+
+function instance$1($$self, $$props, $$invalidate) {
+	let { $$slots: slots = {}, $$scope } = $$props;
+	let { first } = $$props;
+	let { last } = $$props;
+	let { selected } = $$props;
+	const dispatch = createEventDispatcher();
+	let el;
+
+	function buttonClicked(type) {
+		dispatch("buttonClicked", type);
+	}
+
+	onMount(() => {
+		fetch("https://reqres.in/api/products/3").then(async data => {
+			console.log(await data.json());
+		}).catch(error => {
+			console.log(error);
+		});
+	});
+
+	const click_handler = e => buttonClicked("create");
+	const click_handler_1 = e => buttonClicked("update");
+	const click_handler_2 = e => buttonClicked("delete");
+
+	function div_binding($$value) {
+		binding_callbacks[$$value ? 'unshift' : 'push'](() => {
+			el = $$value;
+			$$invalidate(3, el);
+		});
+	}
+
+	$$self.$$set = $$props => {
+		if ('first' in $$props) $$invalidate(0, first = $$props.first);
+		if ('last' in $$props) $$invalidate(1, last = $$props.last);
+		if ('selected' in $$props) $$invalidate(2, selected = $$props.selected);
+		if ('$$scope' in $$props) $$invalidate(10, $$scope = $$props.$$scope);
+	};
+
+	return [
+		first,
+		last,
+		selected,
+		el,
+		buttonClicked,
+		slots,
+		click_handler,
+		click_handler_1,
+		click_handler_2,
+		div_binding,
+		$$scope
+	];
+}
+
+class CrudButtons extends SvelteComponent {
+	constructor(options) {
+		super();
+		init(this, options, instance$1, create_fragment$1, safe_not_equal, { first: 0, last: 1, selected: 2 });
+	}
+}
+
+/* src/web-components/Crud/index.wc.svelte generated by Svelte v3.47.0 */
+
+function get_each_context(ctx, list, i) {
+	const child_ctx = ctx.slice();
+	child_ctx[18] = list[i];
+	child_ctx[6] = i;
+	return child_ctx;
+}
+
+// (74:2) <Col>
+function create_default_slot_18(ctx) {
+	let h3;
+
+	return {
+		c() {
+			h3 = element("h3");
+			h3.innerHTML = `<slot></slot>`;
+			attr(h3, "class", "heading text-center");
+		},
+		m(target, anchor) {
+			insert(target, h3, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(h3);
+		}
+	};
+}
+
+// (73:1) <Row>
+function create_default_slot_17(ctx) {
+	let col;
+	let current;
+
+	col = new Col({
+			props: {
+				$$slots: { default: [create_default_slot_18] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(col.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(col, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const col_changes = {};
+
+			if (dirty & /*$$scope*/ 1048576) {
+				col_changes.$$scope = { dirty, ctx };
+			}
+
+			col.$set(col_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(col.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(col.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(col, detaching);
+		}
+	};
+}
+
+// (83:4) <Label for="filterprefix">
+function create_default_slot_16(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text("Filter Prefix");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (82:3) <FormGroup>
+function create_default_slot_15(ctx) {
+	let label;
+	let t;
+	let input;
+	let updating_value;
+	let current;
+
+	label = new Label({
+			props: {
+				for: "filterprefix",
+				$$slots: { default: [create_default_slot_16] },
+				$$scope: { ctx }
+			}
+		});
+
+	function input_value_binding(value) {
+		/*input_value_binding*/ ctx[9](value);
+	}
+
+	let input_props = {
+		id: "filterprefix",
+		placeholder: "filter prefix"
+	};
+
+	if (/*prefix*/ ctx[1] !== void 0) {
+		input_props.value = /*prefix*/ ctx[1];
+	}
+
+	input = new Input({ props: input_props });
+	binding_callbacks.push(() => bind(input, 'value', input_value_binding));
+
+	return {
+		c() {
+			create_component(label.$$.fragment);
+			t = space();
+			create_component(input.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(label, target, anchor);
+			insert(target, t, anchor);
+			mount_component(input, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const label_changes = {};
+
+			if (dirty & /*$$scope*/ 1048576) {
+				label_changes.$$scope = { dirty, ctx };
+			}
+
+			label.$set(label_changes);
+			const input_changes = {};
+
+			if (!updating_value && dirty & /*prefix*/ 2) {
+				updating_value = true;
+				input_changes.value = /*prefix*/ ctx[1];
+				add_flush_callback(() => updating_value = false);
+			}
+
+			input.$set(input_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(label.$$.fragment, local);
+			transition_in(input.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(label.$$.fragment, local);
+			transition_out(input.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(label, detaching);
+			if (detaching) detach(t);
+			destroy_component(input, detaching);
+		}
+	};
+}
+
+// (81:2) <Col>
+function create_default_slot_14(ctx) {
+	let formgroup;
+	let current;
+
+	formgroup = new FormGroup({
+			props: {
+				$$slots: { default: [create_default_slot_15] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(formgroup.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(formgroup, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const formgroup_changes = {};
+
+			if (dirty & /*$$scope, prefix*/ 1048578) {
+				formgroup_changes.$$scope = { dirty, ctx };
+			}
+
+			formgroup.$set(formgroup_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(formgroup.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(formgroup.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(formgroup, detaching);
+		}
+	};
+}
+
+// (91:4) <Label for="first">
+function create_default_slot_13(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text("First Name");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (90:3) <FormGroup>
+function create_default_slot_12(ctx) {
+	let label;
+	let t;
+	let input;
+	let updating_value;
+	let current;
+
+	label = new Label({
+			props: {
+				for: "first",
+				$$slots: { default: [create_default_slot_13] },
+				$$scope: { ctx }
+			}
+		});
+
+	function input_value_binding_1(value) {
+		/*input_value_binding_1*/ ctx[10](value);
+	}
+
+	let input_props = { id: "first" };
+
+	if (/*first*/ ctx[4] !== void 0) {
+		input_props.value = /*first*/ ctx[4];
+	}
+
+	input = new Input({ props: input_props });
+	binding_callbacks.push(() => bind(input, 'value', input_value_binding_1));
+
+	return {
+		c() {
+			create_component(label.$$.fragment);
+			t = space();
+			create_component(input.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(label, target, anchor);
+			insert(target, t, anchor);
+			mount_component(input, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const label_changes = {};
+
+			if (dirty & /*$$scope*/ 1048576) {
+				label_changes.$$scope = { dirty, ctx };
+			}
+
+			label.$set(label_changes);
+			const input_changes = {};
+
+			if (!updating_value && dirty & /*first*/ 16) {
+				updating_value = true;
+				input_changes.value = /*first*/ ctx[4];
+				add_flush_callback(() => updating_value = false);
+			}
+
+			input.$set(input_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(label.$$.fragment, local);
+			transition_in(input.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(label.$$.fragment, local);
+			transition_out(input.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(label, detaching);
+			if (detaching) detach(t);
+			destroy_component(input, detaching);
+		}
+	};
+}
+
+// (89:2) <Col>
+function create_default_slot_11(ctx) {
+	let formgroup;
+	let current;
+
+	formgroup = new FormGroup({
+			props: {
+				$$slots: { default: [create_default_slot_12] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(formgroup.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(formgroup, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const formgroup_changes = {};
+
+			if (dirty & /*$$scope, first*/ 1048592) {
+				formgroup_changes.$$scope = { dirty, ctx };
+			}
+
+			formgroup.$set(formgroup_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(formgroup.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(formgroup.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(formgroup, detaching);
+		}
+	};
+}
+
+// (99:4) <Label for="Last Name">
+function create_default_slot_10(ctx) {
+	let t;
+
+	return {
+		c() {
+			t = text("Last Name");
+		},
+		m(target, anchor) {
+			insert(target, t, anchor);
+		},
+		d(detaching) {
+			if (detaching) detach(t);
+		}
+	};
+}
+
+// (98:3) <FormGroup>
+function create_default_slot_9(ctx) {
+	let label;
+	let t;
+	let input;
+	let updating_value;
+	let current;
+
+	label = new Label({
+			props: {
+				for: "Last Name",
+				$$slots: { default: [create_default_slot_10] },
+				$$scope: { ctx }
+			}
+		});
+
+	function input_value_binding_2(value) {
+		/*input_value_binding_2*/ ctx[11](value);
+	}
+
+	let input_props = { id: "Last Name" };
+
+	if (/*last*/ ctx[5] !== void 0) {
+		input_props.value = /*last*/ ctx[5];
+	}
+
+	input = new Input({ props: input_props });
+	binding_callbacks.push(() => bind(input, 'value', input_value_binding_2));
+
+	return {
+		c() {
+			create_component(label.$$.fragment);
+			t = space();
+			create_component(input.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(label, target, anchor);
+			insert(target, t, anchor);
+			mount_component(input, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const label_changes = {};
+
+			if (dirty & /*$$scope*/ 1048576) {
+				label_changes.$$scope = { dirty, ctx };
+			}
+
+			label.$set(label_changes);
+			const input_changes = {};
+
+			if (!updating_value && dirty & /*last*/ 32) {
+				updating_value = true;
+				input_changes.value = /*last*/ ctx[5];
+				add_flush_callback(() => updating_value = false);
+			}
+
+			input.$set(input_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(label.$$.fragment, local);
+			transition_in(input.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(label.$$.fragment, local);
+			transition_out(input.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(label, detaching);
+			if (detaching) detach(t);
+			destroy_component(input, detaching);
+		}
+	};
+}
+
+// (97:2) <Col>
+function create_default_slot_8(ctx) {
+	let formgroup;
+	let current;
+
+	formgroup = new FormGroup({
+			props: {
+				$$slots: { default: [create_default_slot_9] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(formgroup.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(formgroup, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const formgroup_changes = {};
+
+			if (dirty & /*$$scope, last*/ 1048608) {
+				formgroup_changes.$$scope = { dirty, ctx };
+			}
+
+			formgroup.$set(formgroup_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(formgroup.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(formgroup.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(formgroup, detaching);
+		}
+	};
+}
+
+// (80:1) <Row>
+function create_default_slot_7(ctx) {
+	let col0;
+	let t0;
+	let col1;
+	let t1;
+	let col2;
+	let current;
+
+	col0 = new Col({
+			props: {
+				$$slots: { default: [create_default_slot_14] },
+				$$scope: { ctx }
+			}
+		});
+
+	col1 = new Col({
+			props: {
+				$$slots: { default: [create_default_slot_11] },
+				$$scope: { ctx }
+			}
+		});
+
+	col2 = new Col({
+			props: {
+				$$slots: { default: [create_default_slot_8] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(col0.$$.fragment);
+			t0 = space();
+			create_component(col1.$$.fragment);
+			t1 = space();
+			create_component(col2.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(col0, target, anchor);
+			insert(target, t0, anchor);
+			mount_component(col1, target, anchor);
+			insert(target, t1, anchor);
+			mount_component(col2, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const col0_changes = {};
+
+			if (dirty & /*$$scope, prefix*/ 1048578) {
+				col0_changes.$$scope = { dirty, ctx };
+			}
+
+			col0.$set(col0_changes);
+			const col1_changes = {};
+
+			if (dirty & /*$$scope, first*/ 1048592) {
+				col1_changes.$$scope = { dirty, ctx };
+			}
+
+			col1.$set(col1_changes);
+			const col2_changes = {};
+
+			if (dirty & /*$$scope, last*/ 1048608) {
+				col2_changes.$$scope = { dirty, ctx };
+			}
+
+			col2.$set(col2_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(col0.$$.fragment, local);
+			transition_in(col1.$$.fragment, local);
+			transition_in(col2.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(col0.$$.fragment, local);
+			transition_out(col1.$$.fragment, local);
+			transition_out(col2.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(col0, detaching);
+			if (detaching) detach(t0);
+			destroy_component(col1, detaching);
+			if (detaching) detach(t1);
+			destroy_component(col2, detaching);
+		}
+	};
+}
+
+// (109:4) {#each filteredPeople as person, i}
+function create_each_block(ctx) {
+	let input;
+	let updating_group;
+	let current;
+
+	function input_group_binding(value) {
+		/*input_group_binding*/ ctx[12](value);
+	}
+
+	let input_props = {
+		id: /*i*/ ctx[6],
+		type: "radio",
+		value: /*i*/ ctx[6],
+		label: `${/*person*/ ctx[18].last}, ${/*person*/ ctx[18].first}`
+	};
+
+	if (/*radioGroup*/ ctx[0] !== void 0) {
+		input_props.group = /*radioGroup*/ ctx[0];
+	}
+
+	input = new Input({ props: input_props });
+	binding_callbacks.push(() => bind(input, 'group', input_group_binding));
+
+	return {
+		c() {
+			create_component(input.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(input, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const input_changes = {};
+			if (dirty & /*filteredPeople*/ 4) input_changes.label = `${/*person*/ ctx[18].last}, ${/*person*/ ctx[18].first}`;
+
+			if (!updating_group && dirty & /*radioGroup*/ 1) {
+				updating_group = true;
+				input_changes.group = /*radioGroup*/ ctx[0];
+				add_flush_callback(() => updating_group = false);
+			}
+
+			input.$set(input_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(input.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(input.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(input, detaching);
+		}
+	};
+}
+
+// (108:3) <FormGroup>
+function create_default_slot_6(ctx) {
+	let each_1_anchor;
+	let current;
+	let each_value = /*filteredPeople*/ ctx[2];
+	let each_blocks = [];
+
+	for (let i = 0; i < each_value.length; i += 1) {
+		each_blocks[i] = create_each_block(get_each_context(ctx, each_value, i));
+	}
+
+	const out = i => transition_out(each_blocks[i], 1, 1, () => {
+		each_blocks[i] = null;
+	});
+
+	return {
+		c() {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].c();
+			}
+
+			each_1_anchor = empty();
+		},
+		m(target, anchor) {
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				each_blocks[i].m(target, anchor);
+			}
+
+			insert(target, each_1_anchor, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			if (dirty & /*filteredPeople, radioGroup*/ 5) {
+				each_value = /*filteredPeople*/ ctx[2];
+				let i;
+
+				for (i = 0; i < each_value.length; i += 1) {
+					const child_ctx = get_each_context(ctx, each_value, i);
+
+					if (each_blocks[i]) {
+						each_blocks[i].p(child_ctx, dirty);
+						transition_in(each_blocks[i], 1);
+					} else {
+						each_blocks[i] = create_each_block(child_ctx);
+						each_blocks[i].c();
+						transition_in(each_blocks[i], 1);
+						each_blocks[i].m(each_1_anchor.parentNode, each_1_anchor);
+					}
+				}
+
+				group_outros();
+
+				for (i = each_value.length; i < each_blocks.length; i += 1) {
+					out(i);
+				}
+
+				check_outros();
+			}
+		},
+		i(local) {
+			if (current) return;
+
+			for (let i = 0; i < each_value.length; i += 1) {
+				transition_in(each_blocks[i]);
+			}
+
+			current = true;
+		},
+		o(local) {
+			each_blocks = each_blocks.filter(Boolean);
+
+			for (let i = 0; i < each_blocks.length; i += 1) {
+				transition_out(each_blocks[i]);
+			}
+
+			current = false;
+		},
+		d(detaching) {
+			destroy_each(each_blocks, detaching);
+			if (detaching) detach(each_1_anchor);
+		}
+	};
+}
+
+// (107:2) <Col>
+function create_default_slot_5(ctx) {
+	let formgroup;
+	let current;
+
+	formgroup = new FormGroup({
+			props: {
+				$$slots: { default: [create_default_slot_6] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(formgroup.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(formgroup, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const formgroup_changes = {};
+
+			if (dirty & /*$$scope, filteredPeople, radioGroup*/ 1048581) {
+				formgroup_changes.$$scope = { dirty, ctx };
+			}
+
+			formgroup.$set(formgroup_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(formgroup.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(formgroup.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(formgroup, detaching);
+		}
+	};
+}
+
+// (106:1) <Row>
+function create_default_slot_4(ctx) {
+	let col;
+	let current;
+
+	col = new Col({
+			props: {
+				$$slots: { default: [create_default_slot_5] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(col.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(col, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const col_changes = {};
+
+			if (dirty & /*$$scope, filteredPeople, radioGroup*/ 1048581) {
+				col_changes.$$scope = { dirty, ctx };
+			}
+
+			col.$set(col_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(col.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(col.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(col, detaching);
+		}
+	};
+}
+
+// (123:3) <CrudButtons on:buttonClicked={e => buttonClicked(e.detail)} first={first}  last={last} selected={selected}>
+function create_default_slot_3(ctx) {
+	let style;
+
+	return {
+		c() {
+			style = element("style");
+			style.textContent = "button {\n\t\t\t\t\t\t/* font-size: xx-small; */\n\t\t\t\t\t}";
+		},
+		m(target, anchor) {
+			insert(target, style, anchor);
+		},
+		p: noop,
+		d(detaching) {
+			if (detaching) detach(style);
+		}
+	};
+}
+
+// (122:2) <Col>
+function create_default_slot_2(ctx) {
+	let crudbuttons;
+	let current;
+
+	crudbuttons = new CrudButtons({
+			props: {
+				first: /*first*/ ctx[4],
+				last: /*last*/ ctx[5],
+				selected: /*selected*/ ctx[3],
+				$$slots: { default: [create_default_slot_3] },
+				$$scope: { ctx }
+			}
+		});
+
+	crudbuttons.$on("buttonClicked", /*buttonClicked_handler*/ ctx[13]);
+
+	return {
+		c() {
+			create_component(crudbuttons.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(crudbuttons, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const crudbuttons_changes = {};
+			if (dirty & /*first*/ 16) crudbuttons_changes.first = /*first*/ ctx[4];
+			if (dirty & /*last*/ 32) crudbuttons_changes.last = /*last*/ ctx[5];
+			if (dirty & /*selected*/ 8) crudbuttons_changes.selected = /*selected*/ ctx[3];
+
+			if (dirty & /*$$scope*/ 1048576) {
+				crudbuttons_changes.$$scope = { dirty, ctx };
+			}
+
+			crudbuttons.$set(crudbuttons_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(crudbuttons.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(crudbuttons.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(crudbuttons, detaching);
+		}
+	};
+}
+
+// (121:1) <Row>
+function create_default_slot_1(ctx) {
+	let col;
+	let current;
+
+	col = new Col({
+			props: {
+				$$slots: { default: [create_default_slot_2] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(col.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(col, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const col_changes = {};
+
+			if (dirty & /*$$scope, first, last, selected*/ 1048632) {
+				col_changes.$$scope = { dirty, ctx };
+			}
+
+			col.$set(col_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(col.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(col.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(col, detaching);
+		}
+	};
+}
+
+// (72:0) <Container>
+function create_default_slot(ctx) {
+	let row0;
+	let t0;
+	let row1;
+	let t1;
+	let row2;
+	let t2;
+	let row3;
+	let current;
+
+	row0 = new Row({
+			props: {
+				$$slots: { default: [create_default_slot_17] },
+				$$scope: { ctx }
+			}
+		});
+
+	row1 = new Row({
+			props: {
+				$$slots: { default: [create_default_slot_7] },
+				$$scope: { ctx }
+			}
+		});
+
+	row2 = new Row({
+			props: {
+				$$slots: { default: [create_default_slot_4] },
+				$$scope: { ctx }
+			}
+		});
+
+	row3 = new Row({
+			props: {
+				$$slots: { default: [create_default_slot_1] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(row0.$$.fragment);
+			t0 = space();
+			create_component(row1.$$.fragment);
+			t1 = space();
+			create_component(row2.$$.fragment);
+			t2 = space();
+			create_component(row3.$$.fragment);
+		},
+		m(target, anchor) {
+			mount_component(row0, target, anchor);
+			insert(target, t0, anchor);
+			mount_component(row1, target, anchor);
+			insert(target, t1, anchor);
+			mount_component(row2, target, anchor);
+			insert(target, t2, anchor);
+			mount_component(row3, target, anchor);
+			current = true;
+		},
+		p(ctx, dirty) {
+			const row0_changes = {};
+
+			if (dirty & /*$$scope*/ 1048576) {
+				row0_changes.$$scope = { dirty, ctx };
+			}
+
+			row0.$set(row0_changes);
+			const row1_changes = {};
+
+			if (dirty & /*$$scope, last, first, prefix*/ 1048626) {
+				row1_changes.$$scope = { dirty, ctx };
+			}
+
+			row1.$set(row1_changes);
+			const row2_changes = {};
+
+			if (dirty & /*$$scope, filteredPeople, radioGroup*/ 1048581) {
+				row2_changes.$$scope = { dirty, ctx };
+			}
+
+			row2.$set(row2_changes);
+			const row3_changes = {};
+
+			if (dirty & /*$$scope, first, last, selected*/ 1048632) {
+				row3_changes.$$scope = { dirty, ctx };
+			}
+
+			row3.$set(row3_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(row0.$$.fragment, local);
+			transition_in(row1.$$.fragment, local);
+			transition_in(row2.$$.fragment, local);
+			transition_in(row3.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(row0.$$.fragment, local);
+			transition_out(row1.$$.fragment, local);
+			transition_out(row2.$$.fragment, local);
+			transition_out(row3.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(row0, detaching);
+			if (detaching) detach(t0);
+			destroy_component(row1, detaching);
+			if (detaching) detach(t1);
+			destroy_component(row2, detaching);
+			if (detaching) detach(t2);
+			destroy_component(row3, detaching);
+		}
+	};
+}
+
+function create_fragment(ctx) {
+	let container;
+	let current;
+
+	container = new Container({
+			props: {
+				$$slots: { default: [create_default_slot] },
+				$$scope: { ctx }
+			}
+		});
+
+	return {
+		c() {
+			create_component(container.$$.fragment);
+			this.c = noop;
+		},
+		m(target, anchor) {
+			mount_component(container, target, anchor);
+			current = true;
+		},
+		p(ctx, [dirty]) {
+			const container_changes = {};
+
+			if (dirty & /*$$scope, first, last, selected, filteredPeople, radioGroup, prefix*/ 1048639) {
+				container_changes.$$scope = { dirty, ctx };
+			}
+
+			container.$set(container_changes);
+		},
+		i(local) {
+			if (current) return;
+			transition_in(container.$$.fragment, local);
+			current = true;
+		},
+		o(local) {
+			transition_out(container.$$.fragment, local);
+			current = false;
+		},
+		d(detaching) {
+			destroy_component(container, detaching);
+		}
+	};
+}
+
+function instance($$self, $$props, $$invalidate) {
+	let filteredPeople;
+	let selected;
+	let radioGroup = 0;
+
+	let people = [
+		{ first: 'Hans', last: 'Emil' },
+		{ first: 'Max', last: 'Mustermann' },
+		{ first: 'Roman', last: 'Tisch' }
+	];
+
+	let prefix = '';
+	let first = '';
+	let last = '';
+	let i = 0;
+
+	function create() {
+		$$invalidate(8, people = people.concat({ first, last }));
+		$$invalidate(6, i = people.length - 1);
+		$$invalidate(4, first = $$invalidate(5, last = ''));
+	}
+
+	function update() {
+		$$invalidate(3, selected.first = first, selected);
+		$$invalidate(3, selected.last = last, selected);
+		$$invalidate(8, people);
+	}
+
+	const buttonClicked = type => {
+		switch (type) {
+			case "create":
+				create();
+				break;
+			case "update":
+				update();
+				break;
+			case "delete":
+				remove();
+				break;
+		}
+	};
+
+	function remove() {
+		// Remove selected person from the source array (people), not the filtered array
+		const index = people.indexOf(selected);
+
+		$$invalidate(8, people = [...people.slice(0, index), ...people.slice(index + 1)]);
+		$$invalidate(4, first = $$invalidate(5, last = ''));
+		$$invalidate(6, i = Math.min(i, filteredPeople.length - 2));
+	}
+
+	function reset_inputs(person) {
+		$$invalidate(4, first = person ? person.first : '');
+		$$invalidate(5, last = person ? person.last : '');
+	}
+
+	function input_value_binding(value) {
+		prefix = value;
+		$$invalidate(1, prefix);
+	}
+
+	function input_value_binding_1(value) {
+		first = value;
+		$$invalidate(4, first);
+	}
+
+	function input_value_binding_2(value) {
+		last = value;
+		$$invalidate(5, last);
+	}
+
+	function input_group_binding(value) {
+		radioGroup = value;
+		$$invalidate(0, radioGroup);
+	}
+
+	const buttonClicked_handler = e => buttonClicked(e.detail);
+
+	$$self.$$.update = () => {
+		if ($$self.$$.dirty & /*radioGroup*/ 1) {
+			{
+				console.log(radioGroup);
+			}
+		}
+
+		if ($$self.$$.dirty & /*prefix, people*/ 258) {
+			$$invalidate(2, filteredPeople = prefix
+			? people.filter(person => {
+					const name = `${person.last}, ${person.first}`;
+					return name.toLowerCase().indexOf(prefix.toLowerCase()) > -1;
+				})
+			: people);
+		}
+
+		if ($$self.$$.dirty & /*filteredPeople, radioGroup*/ 5) {
+			$$invalidate(3, selected = filteredPeople[radioGroup]);
+		}
+
+		if ($$self.$$.dirty & /*selected*/ 8) {
+			reset_inputs(selected);
+		}
+	};
+
+	return [
+		radioGroup,
+		prefix,
+		filteredPeople,
+		selected,
+		first,
+		last,
+		i,
+		buttonClicked,
+		people,
+		input_value_binding,
+		input_value_binding_1,
+		input_value_binding_2,
+		input_group_binding,
+		buttonClicked_handler
+	];
+}
+
+class Crud extends SvelteElement {
+	constructor(options) {
+		super();
+		this.shadowRoot.innerHTML = `<style>@import "https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css";:host{display:flex;flex-direction:column;align-items:center}.heading{color:blueviolet}</style>`;
+
+		init(
+			this,
+			{
+				target: this.shadowRoot,
+				props: attribute_to_object(this.attributes),
+				customElement: true
+			},
+			instance,
+			create_fragment,
+			safe_not_equal,
+			{},
+			null
+		);
+
+		if (options) {
+			if (options.target) {
+				insert(options.target, this, options.anchor);
+			}
+		}
+	}
+}
+
+customElements.define("crud-element", Crud);
+
+export { Crud, CrudButtons };
