@@ -36,12 +36,12 @@
 </script>
 
 {#if showMe}
-	<h3 class="heading text-center">
+	<h3 class="heading text-center" data-testid="heading">
 		<slot></slot>
 	</h3>
 	<ul class="slds-accordion">
 		{ #each data as item, index }
-		<li class="slds-accordion__list-item" on:click={e => onItemClick(index)}>
+		<li class="slds-accordion__list-item" on:click={e => onItemClick(index)} data-testid="accordion-item">
 			<section class="slds-accordion__section {item.isOpen && 'slds-is-open'}">
 				<div class="slds-accordion__summary">
 					<h2 class="slds-accordion__summary-heading">

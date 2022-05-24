@@ -7,12 +7,22 @@
   "scripts": {
     "build": "rollup -c ",
     "dev": "rollup -c -w",
-    "start": "sirv public --no-clear"
+    "start": "sirv public --no-clear",
+    "test": "jest src",
+    "test:watch": "npm run test -- --watch"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.18.0",
     "@rollup/plugin-commonjs": "^17.0.0",
     "@rollup/plugin-node-resolve": "^11.0.0",
+    "@testing-library/jest-dom": "^5.16.4",
+    "@testing-library/svelte": "^3.1.1",
+    "babel-jest": "^28.1.0",
+    "i": "^0.3.7",
+    "jest": "^28.1.0",
+    "jest-environment-jsdom": "^28.1.0",
     "node-sass": "^7.0.1",
+    "npm": "^8.10.0",
     "rollup": "^2.70.2",
     "rollup-plugin-css-only": "^3.1.0",
     "rollup-plugin-livereload": "^2.0.0",
@@ -20,11 +30,27 @@
     "rollup-plugin-svelte": "^7.0.0",
     "rollup-plugin-terser": "^7.0.0",
     "sass": "^1.50.1",
+    "sirv-cli": "^2.0.0",
     "svelte": "^3.47.0",
-    "svelte-preprocess": "^4.10.6",
-    "sirv-cli": "^2.0.0"
+    "svelte-inline-compile": "^0.1.0",
+    "svelte-jester": "^2.3.2",
+    "svelte-preprocess": "^4.10.6"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "babel-jest",
+      "^.+\\.svelte$": "svelte-jester"
+    },
+    "moduleFileExtensions": [
+      "js",
+      "svelte"
+    ],
+    "testEnvironment": "jsdom"
   },
   "dependencies": {
     "sveltestrap": "^5.9.0"
-  }
+  },
+  "setupFilesAfterEnv": [
+    "@testing-library/jest-dom/extend-expect"
+  ]
 }

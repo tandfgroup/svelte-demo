@@ -17,8 +17,8 @@ function generateComponentConfig() {
 			external : Object.keys(pkg.dependencies),
 			input: [`src/web-components/${folderName}/index.js`],
 			output: [
-				{ file: `public/build/wc/${folderName}.mjs`, 'format': 'es' },
-				{ file: `public/build/wc/${folderName}.js`, 'format': 'umd', name: folderName }
+				{ file: `public/build/wc/${folderName}.mjs`, 'format': 'es', exclude: "**/__tests__" },
+				// { file: `public/build/wc/${folderName}.js`, 'format': 'umd', name: folderName }
 			],
 			plugins: [
 				svelte({ compilerOptions:{customElement: true}, emitCss: false, include: /\.wc\.svelte$/ }),
