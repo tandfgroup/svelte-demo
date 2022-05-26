@@ -1,10 +1,6 @@
 <svelte:options tag="tnf-accordion" />
 
 <script>
-	let showMe = false
-	setTimeout(() => {
-		showMe = true
-	}, 100)
 	const scriptLoaded = () => {
 		console.log("script loaded")
 	}
@@ -35,8 +31,7 @@
 	}
 </script>
 
-{#if showMe}
-	<h3 class="heading text-center" data-testid="heading">
+<h3 class="heading text-center" data-testid="heading">
 		<slot></slot>
 	</h3>
 	<ul class="slds-accordion">
@@ -73,10 +68,8 @@
 		{ /each }
 </ul>
 
-{/if}
-
 <style lang="scss" type="text/scss">
-  @import "/assets/styles/salesforce-lightning-design-system.min.css";
+  @import "https://cdnjs.cloudflare.com/ajax/libs/design-system/2.18.0/styles/salesforce-lightning-design-system.min.css";
   :host {
     display: flex;
     flex-direction: column;
