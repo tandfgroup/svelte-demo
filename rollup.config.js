@@ -6,29 +6,49 @@ import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 import * as fs from 'fs';
 const pkg = require('./package.json');
-
+const BUILD_DIR = "public/build"
 const production = !process.env.ROLLUP_WATCH;
-
+fs.rmSync(`${BUILD_DIR}`, { recursive: true, force: true });
 function generateComponentConfig() {
-	fs.rmSync("public/build/wc", { recursive: true, force: true });
 	const dir = fs.readdirSync("./src/web-components");
-	return dir.map(folderName => {
+	return dir.filter(item => item !== "index.js").map(folderName => {
 		return {
 			external : Object.keys(pkg.dependencies),
 			input: [`src/web-components/${folderName}/index.js`],
 			output: [
-				{ file: `public/build/wc/${folderName}.mjs`, 'format': 'es', exclude: "**/__tests__" },
-				// { file: `public/build/wc/${folderName}.js`, 'format': 'umd', name: folderName }
+				{ file: `${BUILD_DIR}/wc/${folderName}.mjs`, 'format': 'es' },
+				{ file: `${BUILD_DIR}/wc/${folderName}.js`, 'format': 'umd', name: folderName }
 			],
 			plugins: [
-				svelte({ compilerOptions:{customElement: true}, emitCss: false, include: /\.wc\.svelte$/ }),
-				svelte({ compilerOptions: {customElement: false}, emitCss: false, exclude: /\.wc\.svelte$/ }),
+				svelte({ compilerOptions:{customElement: true}, include: /\.wc\.svelte$/ }),
+				svelte({ compilerOptions: {customElement: false}, exclude: /\.wc\.svelte$/ }),
 				resolve(),
 				commonjs(),
-				// production && terser()
+				production && terser()
 			],
 		};
 	});
+}
+
+function generateComponentBundleConfig() {
+	fs.rmSync(`${BUILD_DIR}/wcBundle`, { recursive: true, force: true });
+	return [{
+		external : Object.keys(pkg.dependencies),
+		input: "src/web-components/index.js",
+		output: {
+			sourcemap: true,
+			format: 'iife',
+			name: 'wcBundle',
+			file: `${BUILD_DIR}/wcBundle.js`,
+		},
+		plugins: [
+			svelte({ compilerOptions:{customElement: true}, include: /\.wc\.svelte$/ }),
+			svelte({ compilerOptions: {customElement: false}, exclude: /\.wc\.svelte$/ }),
+			resolve(),
+			commonjs(),
+			production && terser()
+		],
+	}];
 }
 
 function serve() {
@@ -68,12 +88,14 @@ function plugins(customElement = false){
 		commonjs(),
 		!production && serve(),
 		!production && livereload('public'),
-		// production && terser(),
+		production && terser(),
 	];
 }
 
 export default [
-	...generateComponentConfig(), {
+	...generateComponentConfig(),
+	...generateComponentBundleConfig(), 
+	{
   input: 'src/main.js',
   output: {
     sourcemap: true,

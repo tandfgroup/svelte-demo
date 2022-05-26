@@ -6,8 +6,8 @@
 	<crud-element>
 		Basic Crud Element
 	</crud-element>
-	<tnf-list-ce/>
-	<tnf-button-ce/>
+	<!-- <tnf-list-ce/>
+	<tnf-button-ce/> -->
 	<tnf-accordion>
 		<strong>Accordion</strong> based on  <strong>Lighting Design System</strong>
 	</tnf-accordion>
