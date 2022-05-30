@@ -3,15 +3,12 @@
 	
 </script>
 <Container lg>
-	<crud-element>
+	<tnf-crud-element>
 		Basic Crud Element
-	</crud-element>
-	<!-- <tnf-list-ce/>
-	<tnf-button-ce/> -->
+	</tnf-crud-element>
 	<tnf-accordion>
 		<strong>Accordion</strong> based on  <strong>Lighting Design System</strong>
 	</tnf-accordion>
-	<!-- <Button/> -->
 </Container>
 
 <style>

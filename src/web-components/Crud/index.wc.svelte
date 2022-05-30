@@ -1,4 +1,4 @@
-<svelte:options tag="crud-element" />
+<svelte:options tag="tnf-crud-element" />
 <script>
 import CrudButtons from "./CrudButtons.svelte";
 import { Input, FormGroup, Label, Container, Row, Col } from "sveltestrap"
